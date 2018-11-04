@@ -140,7 +140,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'double6'
+                'eval' => 'doubel6'
             ]
         ],
         'longitude' => [

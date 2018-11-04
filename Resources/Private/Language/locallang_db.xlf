@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="de" datatype="plaintext" original="messages" date="2018-10-19T18:04:22Z" product-name="skitourenrouten">
+	<file source-language="de" datatype="plaintext" original="messages" date="2018-11-04T12:36:46Z" product-name="skitourenrouten">
 		<header/>
 		<body>
 			<trans-unit id="tx_skitourenrouten_domain_model_mountainregion">
-				<source>Mountainregion</source>
+				<source>Gebiet</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_mountainregion.name">
-				<source>Name</source>
+				<source>Name des Gebiets</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_mountain">
-				<source>Mountain</source>
+				<source>Berg</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_mountain.name">
 				<source>Name</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_mountain.height">
-				<source>Height</source>
+				<source>Höhe</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_mountain.latitude">
 				<source>Latitude</source>
@@ -25,7 +25,7 @@
 				<source>Longitude</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_mountain.mountainregions">
-				<source>Mountainregions</source>
+				<source>Gebiete</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route">
 				<source>Route</source>
@@ -37,7 +37,7 @@
 				<source>Kurzcharakteristik</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.description">
-				<source>Description</source>
+				<source>Beschreibung</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.anfahrt">
 				<source>Anfahrt</source>
@@ -64,13 +64,13 @@
 				<source>Skitechnischebewertung</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.hoehenmeter">
-				<source>Hoehenmeter</source>
+				<source>Höhenmeter</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.gehzeit">
 				<source>Gehzeit</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.schoenheit">
-				<source>Schoenheit</source>
+				<source>Schönheit</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.beliebtheit">
 				<source>Beliebtheit</source>
@@ -88,43 +88,70 @@
 				<source>Track</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.uebersichtsbilder">
-				<source>Uebersichtsbilder</source>
+				<source>Übersichtsbilder</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.aktionbilder">
 				<source>Aktionbilder</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.mountains">
-				<source>Mountains</source>
+				<source>Berge</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.mountainregions">
-				<source>Mountainregions</source>
+				<source>Gebiete</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.huette">
-				<source>Huette</source>
+				<source>Hütte</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.maps">
-				<source>Maps</source>
+				<source>Karten</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_route.guide">
-				<source>Guide</source>
+				<source>Führer</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_map">
-				<source>Map</source>
+				<source>Karte</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_map.name">
 				<source>Name</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_map.description">
-				<source>Description</source>
+				<source>Beschreibung</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_domain_model_map.bild">
 				<source>Bild</source>
+			</trans-unit>
+			<trans-unit id="tx_skitourenrouten_domain_model_map.ean">
+				<source>EAN</source>
+			</trans-unit>
+			<trans-unit id="tx_skitourenrouten_domain_model_map.kartenreihe">
+				<source>Kartenreihe</source>
+			</trans-unit>
+			<trans-unit id="tx_skitourenrouten_domain_model_map.kartennummer">
+				<source>Kartennummer</source>
+			</trans-unit>
+			<trans-unit id="tx_skitourenrouten_domain_model_map.typ">
+				<source>Typ</source>
+			</trans-unit>
+			<trans-unit id="tx_skitourenrouten_domain_model_map.massstab">
+				<source>Massstab</source>
+			</trans-unit>
+			<trans-unit id="tx_skitourenrouten_domain_model_map.preis">
+				<source>Preis</source>
+			</trans-unit>
+			<trans-unit id="tx_skitourenrouten_domain_model_map.verlag">
+				<source>Verlag</source>
+			</trans-unit>
+			<trans-unit id="tx_skitourenrouten_domain_model_map.link">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="tx_skitourenrouten_domain_model_map.bildurl">
+				<source>Bild-URL</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_skitouren.name">
 				<source>Skitouren</source>
 			</trans-unit>
 			<trans-unit id="tx_skitourenrouten_skitouren.description">
-				<source></source>
+				<source>Beschreibung</source>
 			</trans-unit>
 		</body>
 	</file>

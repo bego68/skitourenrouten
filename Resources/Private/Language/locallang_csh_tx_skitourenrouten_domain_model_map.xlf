@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="de" datatype="plaintext" original="messages" date="2018-10-19T18:04:22Z" product-name="skitourenrouten">
+	<file source-language="de" datatype="plaintext" original="messages" date="2018-11-04T12:36:46Z" product-name="skitourenrouten">
 		<header/>
 		<body>
 			<trans-unit id="name.description">
@@ -10,7 +10,34 @@
 				<source>Beschreibung</source>
 			</trans-unit>
 			<trans-unit id="bild.description">
-				<source>bild</source>
+				<source>Bild</source>
+			</trans-unit>
+			<trans-unit id="ean.description">
+				<source>EAN</source>
+			</trans-unit>
+			<trans-unit id="kartenreihe.description">
+				<source>Kartenreihe</source>
+			</trans-unit>
+			<trans-unit id="kartennummer.description">
+				<source>Kartennummer</source>
+			</trans-unit>
+			<trans-unit id="typ.description">
+				<source>Typ</source>
+			</trans-unit>
+			<trans-unit id="massstab.description">
+				<source>Maßstab</source>
+			</trans-unit>
+			<trans-unit id="preis.description">
+				<source>Preis in Euro</source>
+			</trans-unit>
+			<trans-unit id="verlag.description">
+				<source>Verlag</source>
+			</trans-unit>
+			<trans-unit id="link.description">
+				<source>Link zur Bestellung</source>
+			</trans-unit>
+			<trans-unit id="bildurl.description">
+				<source>Bild-URL</source>
 			</trans-unit>
 		</body>
 	</file>

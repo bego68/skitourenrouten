@@ -4,7 +4,7 @@
             "config": {
                 "position": [
                     43,
-                    48
+                    47.111083984375
                 ]
             },
             "name": "New Model Object",
@@ -56,7 +56,7 @@
             "config": {
                 "position": [
                     339,
-                    69
+                    68.111083984375
                 ]
             },
             "name": "New Model Object",
@@ -153,7 +153,7 @@
             "config": {
                 "position": [
                     697,
-                    22
+                    21.111083984375
                 ]
             },
             "name": "New Model Object",
@@ -481,7 +481,7 @@
             "config": {
                 "position": [
                     171,
-                    286
+                    285.111083984375
                 ]
             },
             "name": "New Model Object",
@@ -515,7 +515,7 @@
                             "allowedFileTypes": "",
                             "maxItems": "1",
                             "propertyDescription": "Name",
-                            "propertyIsExcludeField": true,
+                            "propertyIsExcludeField": false,
                             "propertyIsL10nModeExclude": false,
                             "propertyIsRequired": true,
                             "propertyName": "name",
@@ -526,7 +526,7 @@
                             "allowedFileTypes": "",
                             "maxItems": "1",
                             "propertyDescription": "Beschreibung",
-                            "propertyIsExcludeField": true,
+                            "propertyIsExcludeField": false,
                             "propertyIsL10nModeExclude": false,
                             "propertyIsRequired": false,
                             "propertyName": "description",
@@ -536,13 +536,112 @@
                         {
                             "allowedFileTypes": "",
                             "maxItems": "1",
-                            "propertyDescription": "",
-                            "propertyIsExcludeField": true,
+                            "propertyDescription": "Bild",
+                            "propertyIsExcludeField": false,
                             "propertyIsL10nModeExclude": false,
                             "propertyIsRequired": false,
                             "propertyName": "bild",
                             "propertyType": "Image",
                             "uid": "431117053207"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "EAN",
+                            "propertyIsExcludeField": false,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "ean",
+                            "propertyType": "Integer",
+                            "uid": "50856774347"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Kartenreihe",
+                            "propertyIsExcludeField": false,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": true,
+                            "propertyName": "kartenreihe",
+                            "propertyType": "String",
+                            "uid": "354084659511"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Kartennummer",
+                            "propertyIsExcludeField": false,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "kartennummer",
+                            "propertyType": "String",
+                            "uid": "831805583960"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Typ",
+                            "propertyIsExcludeField": false,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "typ",
+                            "propertyType": "String",
+                            "uid": "1166897023961"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Ma\u00dfstab",
+                            "propertyIsExcludeField": false,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": true,
+                            "propertyName": "massstab",
+                            "propertyType": "String",
+                            "uid": "1003736450791"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Preis in Euro",
+                            "propertyIsExcludeField": false,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": true,
+                            "propertyName": "preis",
+                            "propertyType": "Float",
+                            "uid": "1001466801889"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Verlag",
+                            "propertyIsExcludeField": false,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "verlag",
+                            "propertyType": "String",
+                            "uid": "932529428428"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Link zur Bestellung",
+                            "propertyIsExcludeField": false,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": true,
+                            "propertyName": "link",
+                            "propertyType": "String",
+                            "uid": "565295429420"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Bild-URL",
+                            "propertyIsExcludeField": false,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": true,
+                            "propertyName": "bildurl",
+                            "propertyType": "String",
+                            "uid": "14666531220"
                         }
                     ]
                 },
@@ -644,7 +743,7 @@
         }
     ],
     "log": {
-        "last_modified": "2018-10-19 06:04",
+        "last_modified": "2018-11-04 12:36",
         "extension_builder_version": "8.10.2",
         "be_user": " (1)"
     }
