@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2018-10-19T18:04:22Z" product-name="skitourenrouten">
+		<header/>
+		<body>
+			<trans-unit id="routenname.description">
+				<source>Routenname</source>
+			</trans-unit>
+			<trans-unit id="kurzcharakteristik.description">
+				<source>Kurzcharakteristik</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="anfahrt.description">
+				<source>Anfahrt</source>
+			</trans-unit>
+			<trans-unit id="ausgangspunkt.description">
+				<source>Ausgangspunkt</source>
+			</trans-unit>
+			<trans-unit id="routenverlauf.description">
+				<source>Routenverlauf</source>
+			</trans-unit>
+			<trans-unit id="abfahrt.description">
+				<source>Abfahrt</source>
+			</trans-unit>
+			<trans-unit id="varianten.description">
+				<source>Varianten</source>
+			</trans-unit>
+			<trans-unit id="lawinengefahr.description">
+				<source>Lawinengefahr</source>
+			</trans-unit>
+			<trans-unit id="gesamtanspruch.description">
+				<source>Gesamtanspruch</source>
+			</trans-unit>
+			<trans-unit id="skitechnischebewertung.description">
+				<source>Skitechnische Bewertung</source>
+			</trans-unit>
+			<trans-unit id="hoehenmeter.description">
+				<source>Höhenmeter</source>
+			</trans-unit>
+			<trans-unit id="gehzeit.description">
+				<source>Gehzeit (in Minuten)</source>
+			</trans-unit>
+			<trans-unit id="schoenheit.description">
+				<source>Schönheit
+</source>
+			</trans-unit>
+			<trans-unit id="beliebtheit.description">
+				<source>Beliebtheit
+</source>
+			</trans-unit>
+			<trans-unit id="hangexposition.description">
+				<source>Hangexposition</source>
+			</trans-unit>
+			<trans-unit id="hinweise.description">
+				<source>Hinweise
+</source>
+			</trans-unit>
+			<trans-unit id="infoquelle.description">
+				<source>Info-quelle
+</source>
+			</trans-unit>
+			<trans-unit id="track.description">
+				<source>Track-Datei (.gpx)</source>
+			</trans-unit>
+			<trans-unit id="uebersichtsbilder.description">
+				<source>Übersichtsbilder</source>
+			</trans-unit>
+			<trans-unit id="aktionbilder.description">
+				<source>Aktionbilder</source>
+			</trans-unit>
+			<trans-unit id="mountains.description">
+				<source>Berge</source>
+			</trans-unit>
+			<trans-unit id="mountainregions.description">
+				<source>Gebirge</source>
+			</trans-unit>
+			<trans-unit id="huette.description">
+				<source>Hütte / Einkehr</source>
+			</trans-unit>
+			<trans-unit id="maps.description">
+				<source>maps</source>
+			</trans-unit>
+			<trans-unit id="guide.description">
+				<source>Skitourenführer
+</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

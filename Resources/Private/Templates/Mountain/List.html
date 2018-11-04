@@ -1,0 +1,44 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+		<h1>Listing for Mountain</h1>
+
+		<f:flashMessages />
+
+		<table  class="tx_skitourenrouten" >
+			<tr>
+				<th><f:translate key="tx_skitourenrouten_domain_model_mountain.name" /></th>
+				<th><f:translate key="tx_skitourenrouten_domain_model_mountain.height" /></th>
+				<th><f:translate key="tx_skitourenrouten_domain_model_mountain.latitude" /></th>
+				<th><f:translate key="tx_skitourenrouten_domain_model_mountain.longitude" /></th>
+				<th> </th>
+				<th> </th>
+			</tr>
+
+			<f:for each="{mountains}" as="mountain">
+				<tr>
+					<td><f:link.action action="show" arguments="{mountain : mountain}"> {mountain.name}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{mountain : mountain}"> {mountain.height}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{mountain : mountain}"> {mountain.latitude}</f:link.action></td>
+					<td><f:link.action action="show" arguments="{mountain : mountain}"> {mountain.longitude}</f:link.action></td>
+					<td><f:link.action action="edit" arguments="{mountain : mountain}">Edit</f:link.action></td>
+					<td><f:link.action action="delete" arguments="{mountain : mountain}">Delete</f:link.action></td>
+				</tr>
+			</f:for>
+		</table>
+
+		<f:link.action action="new">New Mountain</f:link.action>
+	</f:section>
+</html>

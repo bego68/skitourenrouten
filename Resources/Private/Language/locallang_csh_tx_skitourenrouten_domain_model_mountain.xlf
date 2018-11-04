@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2018-10-19T18:04:22Z" product-name="skitourenrouten">
+		<header/>
+		<body>
+			<trans-unit id="name.description">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="height.description">
+				<source>height</source>
+			</trans-unit>
+			<trans-unit id="latitude.description">
+				<source>latitude</source>
+			</trans-unit>
+			<trans-unit id="longitude.description">
+				<source>Longitude</source>
+			</trans-unit>
+			<trans-unit id="mountainregions.description">
+				<source>Zugehörige Gebirge</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
