@@ -39,9 +39,6 @@
 				<th><f:translate key="tx_skitourenrouten_domain_model_route.infoquelle" /></th>
 				<th><f:translate key="tx_skitourenrouten_domain_model_route.track" /></th>
 				<th><f:translate key="tx_skitourenrouten_domain_model_route.uebersichtsbilder" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.aktionbilder" /></th>
-				<th> </th>
-				<th> </th>
 			</tr>
 
 			<f:for each="{routes}" as="route">
@@ -66,10 +63,7 @@
 					<td><f:link.action action="show" arguments="{route : route}"> {route.infoquelle}</f:link.action></td>
 					<td><f:link.action action="show" arguments="{route : route}"> {route.track}</f:link.action></td>
 					<td><f:link.action action="show" arguments="{route : route}"> {route.uebersichtsbilder}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.aktionbilder}</f:link.action></td>
-					<td><f:link.action action="edit" arguments="{route : route}">Edit</f:link.action></td>
-					<td><f:link.action action="delete" arguments="{route : route}">Delete</f:link.action></td>
-				</tr>
+					</tr>
 			</f:for>
 		</table>
 
