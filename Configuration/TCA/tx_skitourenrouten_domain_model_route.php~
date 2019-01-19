@@ -536,9 +536,26 @@ return [
             'label' => 'LLL:EXT:skitourenrouten/Resources/Private/Language/locallang_db.xlf:tx_skitourenrouten_domain_model_route.huette',
             'config' => [
                 'type' => 'select',
-                'renderType' => '',
+                'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_news_domain_model_news',
+                'foreign_table_where' => 'AND tx_news_domain_model_news.PID=1622',
                 'MM' => 'tx_skitourenrouten_route_news_mm',
+                'size' => 10,
+                'autoSizeMax' => 30,
+                'maxitems' => 9999,
+                'multiple' => 0,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => true,
+                    ],
+                ],
+
             ],
             
         ],
@@ -573,9 +590,26 @@ return [
             'label' => 'LLL:EXT:skitourenrouten/Resources/Private/Language/locallang_db.xlf:tx_skitourenrouten_domain_model_route.guide',
             'config' => [
                 'type' => 'select',
-                'renderType' => '',
+                'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_news_domain_model_news',
+                'foreign_table_where' => 'AND tx_news_domain_model_news.PID=1619',
                 'MM' => 'tx_skitourenrouten_route_news_mm',
+                'size' => 10,
+                'autoSizeMax' => 30,
+                'maxitems' => 9999,
+                'multiple' => 0,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => true,
+                    ],
+                ],
+
             ],
             
         ],

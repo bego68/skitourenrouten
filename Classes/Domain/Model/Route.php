@@ -29,7 +29,6 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Kurzcharakteristik
      *
      * @var string
-     * @validate NotEmpty
      */
     protected $kurzcharakteristik = '';
 
@@ -37,7 +36,6 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Beschreibung
      *
      * @var string
-     * @validate NotEmpty
      */
     protected $description = '';
 
@@ -45,7 +43,6 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Anfahrt
      *
      * @var string
-     * @validate NotEmpty
      */
     protected $anfahrt = '';
 

@@ -139,7 +139,7 @@ return [
                 ],
                 'cols' => 40,
                 'rows' => 15,
-                'eval' => 'trim,required',
+                'eval' => 'trim',
             ],
             
         ],
@@ -157,7 +157,7 @@ return [
                 ],
                 'cols' => 40,
                 'rows' => 15,
-                'eval' => 'trim,required',
+                'eval' => 'trim',
             ],
             
         ],
@@ -175,7 +175,7 @@ return [
                 ],
                 'cols' => 40,
                 'rows' => 15,
-                'eval' => 'trim,required',
+                'eval' => 'trim',
             ],
             
         ],
