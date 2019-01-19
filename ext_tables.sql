@@ -118,6 +118,7 @@ CREATE TABLE tx_skitourenrouten_domain_model_route (
 	huette int(11) unsigned DEFAULT '0' NOT NULL,
 	maps int(11) unsigned DEFAULT '0' NOT NULL,
 	guide int(11) unsigned DEFAULT '0' NOT NULL,
+	slug varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
