@@ -21,7 +21,7 @@ return [
         'iconfile' => 'EXT:skitourenrouten/Resources/Public/Icons/tx_skitourenrouten_domain_model_route.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, routenname, kurzcharakteristik, description, anfahrt, ausgangspunkt, routenverlauf, abfahrt, varianten, lawinengefahr, gesamtanspruch, skitechnischebewertung, hoehenmeter, gehzeit, schoenheit, beliebtheit, hangexposition, hinweise, infoquelle, track, uebersichtsbilder, aktionbilder, mountains, mountainregions, huette, maps, guide,slug',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, routenname, kurzcharakteristik, description, anfahrt, ausgangspunkt, routenverlauf, abfahrt, varianten, lawinengefahr, gesamtanspruch, skitechnischebewertung, hoehenmeter, gehzeit, schoenheit, beliebtheit, hangexposition, hinweise, infoquelle, track, uebersichtsbilder, aktionbilder, mountains, mountainregions, huette, maps, guide, slug',
     ],
     'types' => [
         '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, routenname, kurzcharakteristik, description, anfahrt, ausgangspunkt, routenverlauf, abfahrt, varianten, lawinengefahr, gesamtanspruch, skitechnischebewertung, hoehenmeter, gehzeit, schoenheit, beliebtheit, hangexposition, hinweise, infoquelle, track, uebersichtsbilder, aktionbilder, mountains, mountainregions, huette, maps, guide, slug, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
@@ -539,7 +539,7 @@ return [
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_news_domain_model_news',
                 'foreign_table_where' => 'AND tx_news_domain_model_news.PID=1622',
-                'MM' => 'tx_skitourenrouten_route_news_mm',
+                'MM' => 'tx_skitourenrouten_route_huette_news_mm',
                 'size' => 10,
                 'autoSizeMax' => 30,
                 'maxitems' => 9999,

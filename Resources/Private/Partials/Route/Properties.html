@@ -1,5 +1,13 @@
 {namespace geo=Bertigolf\Bertigolfnewsgeo\ViewHelpers}
-<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" 
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+	          
+	       <n:titleTag>
+              <f:format.htmlentitiesDecode>Skitour {route.mountainregions.0.name}: {route.routenname}    
+			   </f:format.htmlentitiesDecode>
+            </n:titleTag>
+	
 	<div id="funktionsbuttons" class="">
 	<f:image src="fileadmin/images/trackDownload.png" width="50px" height="50px" alt="Track Download" title="GPS-Track als .gpx-Datei herunterladen"/>  	
 	<f:image src="fileadmin/images/pdfDownload.png" onclick="window.print()" width="50px" height="50px" alt="PDF Download" title="Als PDF-Datei herunterladen" />
@@ -51,11 +59,15 @@ Skitechnische Bewertung
             <table > 
               <tr>
                 <th>Höhenmeter</th>
-                <th>Gehzeit</th>
+                <th>Gehzeit
+				  <f:image src="fileadmin/images/Info.png" width="20px" height="20px" alt="Infos" 
+						   title="Übliche Gehzeit ohne Pausen nur für den Aufstieg. 
+Ausnahme: Rundtouren mit Gegenanstiegen - hier gebe ich die Gesamtzeit (Ges.) inclusive Abfahrt(en) an. Berechnungsgrundlage ist eine kleine Gruppen mit guten Skifahrern."/>
+				  </th>
               </tr>
               <tr>
                 <td>{route.hoehenmeter} m</td>
-                <td>{route.gehzeit} Minuten</td>
+                <td>{route.gehzeit} h</td>
               </tr>
             </table>
            </div>
