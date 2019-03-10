@@ -9,8 +9,12 @@
             </n:titleTag>
 	
 	<div id="funktionsbuttons" class="">
-	<f:image src="fileadmin/images/trackDownload.png" width="50px" height="50px" alt="Track Download" title="GPS-Track als .gpx-Datei herunterladen"/>  	
-	<f:image src="fileadmin/images/pdfDownload.png" onclick="window.print()" width="50px" height="50px" alt="PDF Download" title="Als PDF-Datei herunterladen" />
+	   <a href="{route.track.0.originalResource.publicUrl}">
+	     <f:image src="fileadmin/images/trackDownload.png" width="50px" height="50px" alt="Track Download" title="GPS-Track als .gpx-Datei herunterladen"/>  
+          </a>
+          <a href="//pdfcrowd.com/url_to_pdf/">
+	   <f:image src="fileadmin/images/pdfDownload.png"  width="50px" height="50px" alt="PDF Download" title="Als PDF-Datei herunterladen" />
+	  </a>
 	</div>
 	<h3>Skitour {route.mountainregions.0.name} - {route.mountains.0.name}
 	({route.mountains.0.height} m)</h3>
@@ -200,6 +204,9 @@ rot - häufig oder über weite Strecken lawinengefährdet"/>
               <f:render section="maps" arguments="{maps:route.maps}"/>
             </div>  
           </f:if>
+          <div id="msBoxenItem" class="standard TeaserXLarge">
+            <a href="" onclick="history.go(-1); return false;">Zurück</a>
+          </div>
       </div>
 		
   <script>
@@ -337,7 +344,7 @@ rot - häufig oder über weite Strecken lawinengefährdet"/>
 
 	<f:section name="maps">
 			<f:for each="{maps}" as="map">
-				<f:link.external uri="{map.link}">
+				<f:link.external uri="{map.link}" target="_blank">
 				    <img src="{map.bildurl}" height="200px"/>
 				{map.kartenreihe} - {map.kartennummer} {map.name}
 			</f:link.external> - Maßstab: {map.massstab} 		 

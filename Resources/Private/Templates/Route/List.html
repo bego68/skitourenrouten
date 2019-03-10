@@ -14,7 +14,7 @@
 				<tr>
 					<td>
 						<f:if condition="{route.mountains}">
-                          <f:format.html>{route.mountainregions.0.name} - {route.mountains.0.name}	({route.mountains.0.height} m)</f:format.html>
+                          <f:format.html> {route.mountains.0.name}	({route.mountains.0.height} m)</f:format.html>
                 	    </f:if>
 					</td>
 					<td><f:link.action action="show" pageUid="2392" arguments="{route : route}">{route.routenname}<span class="stern_ski  stern{route.schoenheit}_ski"> </span></f:link.action></td>
