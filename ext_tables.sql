@@ -118,6 +118,7 @@ CREATE TABLE tx_skitourenrouten_domain_model_route (
 	huette int(11) unsigned DEFAULT '0' NOT NULL,
 	maps int(11) unsigned DEFAULT '0' NOT NULL,
 	guide int(11) unsigned DEFAULT '0' NOT NULL,
+	slug varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -266,9 +267,9 @@ CREATE TABLE tx_skitourenrouten_route_mountainregion_mm (
 );
 
 #
-# Table structure for table 'tx_skitourenrouten_route_news_mm'
+# Table structure for table 'tx_skitourenrouten_route_huette_news_mm'
 #
-CREATE TABLE tx_skitourenrouten_route_news_mm (
+CREATE TABLE tx_skitourenrouten_route_huette_news_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,

@@ -1,78 +1,27 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:layout name="Default" />
 
-	This Template is responsible for creating a table of domain objects.
-
-	If you modify this template, do not forget to change the overwrite settings
-	in /Configuration/ExtensionBuilder/settings.yaml:
-	  Resources:
-		Private:
-		  Templates:
-			List.html: keep
-
-	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 	<f:section name="content">
-		<h1>Listing for Route</h1>
-
-		<f:flashMessages />
 
 		<table  class="tx_skitourenrouten" >
 			<tr>
+				<th><f:translate key="tx_skitourenrouten_domain_model_route.mountains" /></th>
 				<th><f:translate key="tx_skitourenrouten_domain_model_route.routenname" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.kurzcharakteristik" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.description" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.anfahrt" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.ausgangspunkt" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.routenverlauf" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.abfahrt" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.varianten" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.lawinengefahr" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.gesamtanspruch" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.skitechnischebewertung" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.hoehenmeter" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.gehzeit" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.schoenheit" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.beliebtheit" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.hangexposition" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.hinweise" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.infoquelle" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.track" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.uebersichtsbilder" /></th>
-				<th><f:translate key="tx_skitourenrouten_domain_model_route.aktionbilder" /></th>
-				<th> </th>
-				<th> </th>
 			</tr>
 
 			<f:for each="{routes}" as="route">
 				<tr>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.routenname}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.kurzcharakteristik}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.description}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.anfahrt}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.ausgangspunkt}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.routenverlauf}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.abfahrt}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.varianten}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.lawinengefahr}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.gesamtanspruch}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.skitechnischebewertung}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.hoehenmeter}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.gehzeit}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.schoenheit}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.beliebtheit}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.hangexposition}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.hinweise}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.infoquelle}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.track}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.uebersichtsbilder}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{route : route}"> {route.aktionbilder}</f:link.action></td>
-					<td><f:link.action action="edit" arguments="{route : route}">Edit</f:link.action></td>
-					<td><f:link.action action="delete" arguments="{route : route}">Delete</f:link.action></td>
-				</tr>
+					<td>
+						<f:if condition="{route.mountains}">
+                          <f:format.html> {route.mountains.0.name}	({route.mountains.0.height} m)</f:format.html>
+                	    </f:if>
+					</td>
+					<td><f:link.action action="show" pageUid="2392" arguments="{route : route}">{route.routenname}<span class="stern_ski  stern{route.schoenheit}_ski"> </span></f:link.action></td>
+										</tr>
 			</f:for>
 		</table>
 
-		<f:link.action action="new">New Route</f:link.action>
-	</f:section>
+</f:section>
+
 </html>

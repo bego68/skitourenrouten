@@ -2,7 +2,10 @@
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:skitourenrouten/Resources/Private/Language/locallang_db.xlf:tx_skitourenrouten_domain_model_map',
-        'label' => 'name',
+        'label' => 'kartenreihe',
+		'label_alt' =>  'kartennummer, name',
+		'label_alt_force' => TRUE,
+		'default_sortby' => 'kartenreihe ASC, kartennummer ASC, name ASC',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
