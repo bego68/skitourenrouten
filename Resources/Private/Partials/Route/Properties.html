@@ -131,6 +131,25 @@ rot - häufig oder über weite Strecken lawinengefährdet"/>
               <f:format.html>{route.description}</f:format.html>
             </div>
 		  </f:if>
+			<!--
+    =====================   Werbebanner - Anfang   ===================== 
+            -->
+		  <div id="msBoxenItem" class="standard TeaserXLarge responsivepicture wandbild">  
+		    <f:link.external uri="https://ortovox.com/de-de/far-and-light?utm_source=markusstadler&utm_medium=banner&utm_campaign=awareness-farlight-summer23" 
+						  target="_blank" rel="nofollow">
+			     <sms:image 
+			          src="fileadmin/images/allgemeines/bannerOrtovox/230315_Online_Banner_Statisch_1200x148_LRZ_Far_Light_M.jpg" 
+			          alt="Ortovox - Far and Light Collection"  
+			          title="Ortovox - Far and Light Collection"
+			          width="1199"
+			          srcset="400,900,1199"
+			          sizes="70vw"
+		         />
+		    </f:link.external>
+		 </div>
+	        <!--
+    =====================   Werbebanner - Ende  ===================== 
+              -->
 		  <f:if condition="{route.anfahrt}">
             <div id="msBoxenItem" class="standard TeaserLarge">
                <h4>Anfahrt</h4>
@@ -344,8 +363,8 @@ rot - häufig oder über weite Strecken lawinengefährdet"/>
 
 	<f:section name="maps">
 			<f:for each="{maps}" as="map">
-				<f:link.external uri="{map.link}" target="_blank">
-				    <img src="{map.bildurl}" height="200px"/>
+				<f:link.external uri="{map.link}" target="_blank" title="Diese Karte kann beim Landkartenhaus online bestellt werden">
+					<img src="{map.bildurl}" height="200px"/></br>
 				{map.kartenreihe} - {map.kartennummer} {map.name}
 			</f:link.external> - Maßstab: {map.massstab} 		 
 				<br/>
