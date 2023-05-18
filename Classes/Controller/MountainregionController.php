@@ -21,7 +21,7 @@ class MountainregionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
      * mountainregionRepository
      *
      * @var \Golf\Skitourenrouten\Domain\Repository\MountainregionRepository
-     * @inject
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Inject
      */
     protected $mountainregionRepository = null;
 

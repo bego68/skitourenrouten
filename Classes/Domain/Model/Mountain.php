@@ -21,7 +21,7 @@ class Mountain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Name
      *
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $name = '';
 
@@ -29,7 +29,7 @@ class Mountain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * height
      *
      * @var int
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $height = 0;
 
