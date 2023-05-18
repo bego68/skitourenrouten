@@ -21,7 +21,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Routenname
      *
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $routenname = '';
 
@@ -152,7 +152,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Track-Datei (.gpx)
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @cascade remove
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Cascade remove
      */
     protected $track = null;
 
@@ -160,7 +160,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Übersichtsbilder
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @cascade remove
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Cascade remove
      */
     protected $uebersichtsbilder = null;
 
@@ -168,7 +168,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Aktionbilder
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @cascade remove
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Cascade remove
      */
     protected $aktionbilder = null;
 
@@ -190,7 +190,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Hütte / Einkehr
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\GeorgRinger\News\Domain\Model\News>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Lazy
      */
     protected $huette = null;
 
@@ -198,7 +198,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * maps
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Map>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Lazy
      */
     protected $maps = null;
 

@@ -21,7 +21,7 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Name
      *
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $name = '';
 
@@ -36,7 +36,7 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Bild
      *
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-     * @cascade remove
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Cascade remove
      */
     protected $bild = null;
 
@@ -51,7 +51,7 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Kartenreihe
      *
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $kartenreihe = '';
 
@@ -73,7 +73,7 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Maßstab
      *
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $massstab = '';
 
@@ -81,7 +81,7 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Preis in Euro
      *
      * @var float
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $preis = 0.0;
 
@@ -96,7 +96,7 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Link zur Bestellung
      *
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $link = '';
 
@@ -104,7 +104,7 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Bild-URL
      *
      * @var string
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $bildurl = '';
 
