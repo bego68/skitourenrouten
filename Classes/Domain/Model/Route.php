@@ -12,17 +12,21 @@ namespace Golf\Skitourenrouten\Domain\Model;
  *
  ***/
 
+use TYPO3\CMS\Extbase\Annotation;
+use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
  * Skiroute
  */
-class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Route extends AbstractEntity
 {
     /**
      * Routenname
      *
      * @var string
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
-     */
+	*/
     protected $routenname = '';
 
     /**
@@ -152,7 +156,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Track-Datei (.gpx)
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Cascade remove
+     * @Cascade("remove")
      */
     protected $track = null;
 
@@ -160,7 +164,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Übersichtsbilder
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Cascade remove
+     * @Cascade remove
      */
     protected $uebersichtsbilder = null;
 
@@ -168,7 +172,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Aktionbilder
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Cascade remove
+     * @Cascade remove
      */
     protected $aktionbilder = null;
 
@@ -190,7 +194,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Hütte / Einkehr
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\GeorgRinger\News\Domain\Model\News>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Lazy
+     * @Lazy
      */
     protected $huette = null;
 
@@ -198,7 +202,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * maps
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Map>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Lazy
+     * @Lazy
      */
     protected $maps = null;
 

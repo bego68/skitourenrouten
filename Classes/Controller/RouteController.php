@@ -12,6 +12,9 @@ namespace Golf\Skitourenrouten\Controller;
  *
  ***/
 
+use \Golf\Skitourenrouten\Domain\Repository\RouteRepository;
+use TYPO3\CMS\Extbase\Annotation\Inject;
+
 /**
  * RouteController
  */
@@ -21,7 +24,7 @@ class RouteController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * routeRepository
      *
      * @var \Golf\Skitourenrouten\Domain\Repository\RouteRepository
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $routeRepository = null;
 

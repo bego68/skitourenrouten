@@ -11,17 +11,19 @@ namespace Golf\Skitourenrouten\Domain\Model;
  *  (c) 2018 Hubertus Golf <info@berti-golf.de>, Volleyballserver
  *
  ***/
-
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Annotation\ORM\Valdate;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 /**
  * Berg
  */
-class Mountain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Mountain extends AbstractEntity
 {
     /**
      * Name
      *
      * @var string
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
+     * Validate NotEmpty
      */
     protected $name = '';
 
@@ -29,7 +31,7 @@ class Mountain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * height
      *
      * @var int
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
+     * Validate NotEmpty
      */
     protected $height = 0;
 
@@ -50,7 +52,7 @@ class Mountain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Zugehörige Gebirge
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Mountainregion>
+     * @var ObjectStorage<Mountainregion>
      */
     protected $mountainregions = null;
 
@@ -73,7 +75,7 @@ class Mountain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected function initStorageObjects()
     {
-        $this->mountainregions = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->mountainregions = new ObjectStorage();
     }
 
     /**
@@ -100,7 +102,7 @@ class Mountain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a Mountainregion
      *
-     * @param \Golf\Skitourenrouten\Domain\Model\Mountainregion $mountainregion
+     * @param Mountainregion $mountainregion
      * @return void
      */
     public function addMountainregion($mountainregion)
@@ -111,7 +113,7 @@ class Mountain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a Mountainregion
      *
-     * @param \Golf\Skitourenrouten\Domain\Model\Mountainregion $mountainregionToRemove The Mountainregion to be removed
+     * @param Mountainregion $mountainregionToRemove The Mountainregion to be removed
      * @return void
      */
     public function removeMountainregion($mountainregionToRemove)
@@ -122,7 +124,7 @@ class Mountain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the mountainregions
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Mountainregion> mountainregions
+     * @return ObjectStorage<Mountainregion> mountainregions
      */
     public function getMountainregions()
     {
@@ -132,10 +134,10 @@ class Mountain extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the mountainregions
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Mountainregion> $mountainregions
+     * @param ObjectStorage<Mountainregion> $mountainregions
      * @return void
      */
-    public function setMountainregions(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $mountainregions)
+    public function setMountainregions(ObjectStorage $mountainregions)
     {
         $this->mountainregions = $mountainregions;
     }
