@@ -12,16 +12,21 @@ namespace Golf\Skitourenrouten\Domain\Model;
  *
  ***/
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use TYPO3\CMS\Extbase\Annotation\Cascade;
+
+	
 /**
  * Karte
  */
-class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Map extends AbstractEntity
 {
     /**
      * Name
      *
      * @var string
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $name = '';
 
@@ -35,8 +40,7 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Bild
      *
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Cascade remove
+     * @var FileReference
      */
     protected $bild = null;
 
@@ -51,7 +55,6 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Kartenreihe
      *
      * @var string
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $kartenreihe = '';
 
@@ -73,7 +76,6 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Maßstab
      *
      * @var string
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $massstab = '';
 
@@ -81,7 +83,6 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Preis in Euro
      *
      * @var float
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $preis = 0.0;
 
@@ -96,7 +97,6 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Link zur Bestellung
      *
      * @var string
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $link = '';
 
@@ -104,7 +104,6 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Bild-URL
      *
      * @var string
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $bildurl = '';
 
@@ -153,7 +152,7 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the bild
      *
-     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $bild
+     * @return FileReference $bild
      */
     public function getBild()
     {
@@ -163,10 +162,10 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the bild
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $bild
+     * @param FileReference $bild
      * @return void
      */
-    public function setBild(\TYPO3\CMS\Extbase\Domain\Model\FileReference $bild)
+    public function setBild(FileReference $bild)
     {
         $this->bild = $bild;
     }

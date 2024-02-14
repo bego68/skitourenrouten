@@ -12,17 +12,23 @@ namespace Golf\Skitourenrouten\Domain\Model;
  *
  ***/
 
+use TYPO3\CMS\Extbase\Annotation;
+use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use \TYPO3\CMS\Extbase\Domain\Model\FileReference;
+
 /**
  * Skiroute
  */
-class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Route extends AbstractEntity
 {
     /**
      * Routenname
      *
      * @var string
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
-     */
+	*/
     protected $routenname = '';
 
     /**
@@ -151,54 +157,54 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Track-Datei (.gpx)
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Cascade remove
+     * @var ObjectStorage<FileReference>
+     * @Cascade("remove")
      */
     protected $track = null;
 
     /**
      * Übersichtsbilder
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Cascade remove
+     * @var ObjectStorage<FileReference>
+     * @Cascade remove
      */
     protected $uebersichtsbilder = null;
 
     /**
      * Aktionbilder
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Cascade remove
+     * @var ObjectStorage<FileReference>
+     * @Cascade remove
      */
     protected $aktionbilder = null;
 
     /**
      * Berge
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Mountain>
+     * @var ObjectStorage<Mountain>
      */
     protected $mountains = null;
 
     /**
      * Gebirge
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Mountainregion>
+     * @var ObjectStorage<Mountainregion>
      */
     protected $mountainregions = null;
 
     /**
      * Hütte / Einkehr
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\GeorgRinger\News\Domain\Model\News>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Lazy
+     * @var ObjectStorage<\GeorgRinger\News\Domain\Model\News>
+     * @Lazy
      */
     protected $huette = null;
 
     /**
      * maps
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Map>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Lazy
+     * @var ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Map>
+     * @Lazy
      */
     protected $maps = null;
 
@@ -206,7 +212,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Skitourenführer
      *
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\GeorgRinger\News\Domain\Model\News>
+     * @var ObjectStorage<\GeorgRinger\News\Domain\Model\News>
      */
     protected $guide = null;
 
@@ -229,14 +235,14 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected function initStorageObjects()
     {
-        $this->track = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->uebersichtsbilder = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->aktionbilder = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->mountains = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->mountainregions = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->huette = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->maps = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->guide = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->track = new ObjectStorage();
+        $this->uebersichtsbilder = new ObjectStorage();
+        $this->aktionbilder = new ObjectStorage();
+        $this->mountains = new ObjectStorage();
+        $this->mountainregions = new ObjectStorage();
+        $this->huette = new ObjectStorage();
+        $this->maps = new ObjectStorage();
+        $this->guide = new ObjectStorage();
     }
 
     /**
@@ -389,10 +395,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a Mountain
      *
-     * @param \Golf\Skitourenrouten\Domain\Model\Mountain $mountain
+     * @param Mountain $mountain
      * @return void
      */
-    public function addMountain(\Golf\Skitourenrouten\Domain\Model\Mountain $mountain)
+    public function addMountain(Mountain $mountain)
     {
         $this->mountains->attach($mountain);
     }
@@ -400,10 +406,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a Mountain
      *
-     * @param \Golf\Skitourenrouten\Domain\Model\Mountain $mountainToRemove The Mountain to be removed
+     * @param Mountain $mountainToRemove The Mountain to be removed
      * @return void
      */
-    public function removeMountain(\Golf\Skitourenrouten\Domain\Model\Mountain $mountainToRemove)
+    public function removeMountain(Mountain $mountainToRemove)
     {
         $this->mountains->detach($mountainToRemove);
     }
@@ -411,7 +417,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the mountains
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Mountain> $mountains
+     * @return ObjectStorage<Mountain> $mountains
      */
     public function getMountains()
     {
@@ -421,10 +427,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the mountains
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Mountain> $mountains
+     * @param ObjectStorage<Mountain> $mountains
      * @return void
      */
-    public function setMountains(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $mountains)
+    public function setMountains(ObjectStorage $mountains)
     {
         $this->mountains = $mountains;
     }
@@ -432,10 +438,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a Mountainregion
      *
-     * @param \Golf\Skitourenrouten\Domain\Model\Mountainregion $mountainregion
+     * @param Mountainregion $mountainregion
      * @return void
      */
-    public function addMountainregion(\Golf\Skitourenrouten\Domain\Model\Mountainregion $mountainregion)
+    public function addMountainregion(Mountainregion $mountainregion)
     {
         $this->mountainregions->attach($mountainregion);
     }
@@ -443,10 +449,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a Mountainregion
      *
-     * @param \Golf\Skitourenrouten\Domain\Model\Mountainregion $mountainregionToRemove The Mountainregion to be removed
+     * @param Mountainregion $mountainregionToRemove The Mountainregion to be removed
      * @return void
      */
-    public function removeMountainregion(\Golf\Skitourenrouten\Domain\Model\Mountainregion $mountainregionToRemove)
+    public function removeMountainregion(Mountainregion $mountainregionToRemove)
     {
         $this->mountainregions->detach($mountainregionToRemove);
     }
@@ -454,7 +460,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the mountainregions
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Mountainregion> $mountainregions
+     * @return ObjectStorage<Mountainregion> $mountainregions
      */
     public function getMountainregions()
     {
@@ -464,10 +470,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the mountainregions
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Mountainregion> $mountainregions
+     * @param ObjectStorage<Mountainregion> $mountainregions
      * @return void
      */
-    public function setMountainregions(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $mountainregions)
+    public function setMountainregions(ObjectStorage $mountainregions)
     {
         $this->mountainregions = $mountainregions;
     }
@@ -706,10 +712,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a FileReference
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $track
+     * @param FileReference $track
      * @return void
      */
-    public function addTrack(\TYPO3\CMS\Extbase\Domain\Model\FileReference $track)
+    public function addTrack(FileReference $track)
     {
         $this->track->attach($track);
     }
@@ -717,10 +723,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a FileReference
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $trackToRemove The FileReference to be removed
+     * @param FileReference $trackToRemove The FileReference to be removed
      * @return void
      */
-    public function removeTrack(\TYPO3\CMS\Extbase\Domain\Model\FileReference $trackToRemove)
+    public function removeTrack(FileReference $trackToRemove)
     {
         $this->track->detach($trackToRemove);
     }
@@ -728,7 +734,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the track
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $track
+     * @return ObjectStorage<FileReference> $track
      */
     public function getTrack()
     {
@@ -738,10 +744,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the track
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $track
+     * @param ObjectStorage<FileReference> $track
      * @return void
      */
-    public function setTrack(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $track)
+    public function setTrack(ObjectStorage $track)
     {
         $this->track = $track;
     }
@@ -749,10 +755,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a FileReference
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $uebersichtsbilder
+     * @param FileReference $uebersichtsbilder
      * @return void
      */
-    public function addUebersichtsbilder(\TYPO3\CMS\Extbase\Domain\Model\FileReference $uebersichtsbilder)
+    public function addUebersichtsbilder(FileReference $uebersichtsbilder)
     {
         $this->uebersichtsbilder->attach($uebersichtsbilder);
     }
@@ -760,10 +766,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a FileReference
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $uebersichtsbilderToRemove The FileReference to be removed
+     * @param FileReference $uebersichtsbilderToRemove The FileReference to be removed
      * @return void
      */
-    public function removeUebersichtsbilder(\TYPO3\CMS\Extbase\Domain\Model\FileReference $uebersichtsbilderToRemove)
+    public function removeUebersichtsbilder(FileReference $uebersichtsbilderToRemove)
     {
         $this->uebersichtsbilder->detach($uebersichtsbilderToRemove);
     }
@@ -771,7 +777,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the uebersichtsbilder
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $uebersichtsbilder
+     * @return ObjectStorage<FileReference> $uebersichtsbilder
      */
     public function getUebersichtsbilder()
     {
@@ -781,10 +787,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the uebersichtsbilder
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $uebersichtsbilder
+     * @param ObjectStorage<FileReference> $uebersichtsbilder
      * @return void
      */
-    public function setUebersichtsbilder(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $uebersichtsbilder)
+    public function setUebersichtsbilder(ObjectStorage $uebersichtsbilder)
     {
         $this->uebersichtsbilder = $uebersichtsbilder;
     }
@@ -792,10 +798,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a FileReference
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $aktionbilder
+     * @param FileReference $aktionbilder
      * @return void
      */
-    public function addAktionbilder(\TYPO3\CMS\Extbase\Domain\Model\FileReference $aktionbilder)
+    public function addAktionbilder(FileReference $aktionbilder)
     {
         $this->aktionbilder->attach($aktionbilder);
     }
@@ -803,10 +809,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a FileReference
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $aktionbilderToRemove The FileReference to be removed
+     * @param FileReference $aktionbilderToRemove The FileReference to be removed
      * @return void
      */
-    public function removeAktionbilder(\TYPO3\CMS\Extbase\Domain\Model\FileReference $aktionbilderToRemove)
+    public function removeAktionbilderFileReference( $aktionbilderToRemove)
     {
         $this->aktionbilder->detach($aktionbilderToRemove);
     }
@@ -814,7 +820,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the aktionbilder
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $aktionbilder
+     * @return ObjectStorage<FileReference> $aktionbilder
      */
     public function getAktionbilder()
     {
@@ -824,10 +830,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the aktionbilder
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $aktionbilder
+     * @param \ObjectStorage<\FileReference> $aktionbilder
      * @return void
      */
-    public function setAktionbilder(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $aktionbilder)
+    public function setAktionbilder(ObjectStorage $aktionbilder)
     {
         $this->aktionbilder = $aktionbilder;
     }
@@ -857,7 +863,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the huette
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\GeorgRinger\News\Domain\Model\News> $huette
+     * @return ObjectStorage<\GeorgRinger\News\Domain\Model\News> $huette
      */
     public function getHuette()
     {
@@ -867,10 +873,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the huette
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\GeorgRinger\News\Domain\Model\News> $huette
+     * @param ObjectStorage<\GeorgRinger\News\Domain\Model\News> $huette
      * @return void
      */
-    public function setHuette(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $huette)
+    public function setHuette(ObjectStorage $huette)
     {
         $this->huette = $huette;
     }
@@ -878,10 +884,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a Map
      *
-     * @param \Golf\Skitourenrouten\Domain\Model\Map $map
+     * @param \Map $map
      * @return void
      */
-    public function addMap(\Golf\Skitourenrouten\Domain\Model\Map $map)
+    public function addMap(Map $map)
     {
         $this->maps->attach($map);
     }
@@ -889,10 +895,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a Map
      *
-     * @param \Golf\Skitourenrouten\Domain\Model\Map $mapToRemove The Map to be removed
+     * @param Map $mapToRemove The Map to be removed
      * @return void
      */
-    public function removeMap(\Golf\Skitourenrouten\Domain\Model\Map $mapToRemove)
+    public function removeMap(Map $mapToRemove)
     {
         $this->maps->detach($mapToRemove);
     }
@@ -900,7 +906,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the maps
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Map> $maps
+     * @return ObjectStorage<Map> $maps
      */
     public function getMaps()
     {
@@ -910,10 +916,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the maps
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Golf\Skitourenrouten\Domain\Model\Map> $maps
+     * @param ObjectStorage<Map> $maps
      * @return void
      */
-    public function setMaps(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $maps)
+    public function setMaps(ObjectStorage $maps)
     {
         $this->maps = $maps;
     }
@@ -943,7 +949,7 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the guide
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\GeorgRinger\News\Domain\Model\News> $guide
+     * @return bjectStorage<\GeorgRinger\News\Domain\Model\News> $guide
      */
     public function getGuide()
     {
@@ -953,10 +959,10 @@ class Route extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the guide
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\GeorgRinger\News\Domain\Model\News> $guide
+     * @param ObjectStorage<\GeorgRinger\News\Domain\Model\News> $guide
      * @return void
      */
-    public function setGuide(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $guide)
+    public function setGuide(ObjectStorage $guide)
     {
         $this->guide = $guide;
     }
