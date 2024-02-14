@@ -112,7 +112,7 @@ rot - häufig oder über weite Strecken lawinengefährdet"/>
 	       <f:if condition="{route.aktionbilder}">
 			  <div id="msBoxenItem" class="standard TeaserLarge responsivepicture aktion">
                  <f:for each="{route.aktionbilder}" as="aktionbild" iteration="iterator">
-					<sms:image image="{aktionbild.originalResource}" srcset="400, 600, 800" sizes="(min-width: 1200px) 600px, (min-width: 900px) 800px, 100vw" maxWidth="900" />				  
+					<f:image image="{aktionbild.originalResource}" maxWidth="900" />				  
 				  </f:for>
               </div>
 		  </f:if>
@@ -137,13 +137,11 @@ rot - häufig oder über weite Strecken lawinengefährdet"/>
 		  <div id="msBoxenItem" class="standard TeaserXLarge responsivepicture wandbild">  
 		    <f:link.external uri="https://ortovox.com/de-de/far-and-light?utm_source=markusstadler&utm_medium=banner&utm_campaign=awareness-farlight-summer23" 
 						  target="_blank" rel="nofollow">
-			     <sms:image 
+			     <f:image 
 			          src="fileadmin/images/allgemeines/bannerOrtovox/230315_Online_Banner_Statisch_1200x148_LRZ_Far_Light_M.jpg" 
 			          alt="Ortovox - Far and Light Collection"  
 			          title="Ortovox - Far and Light Collection"
 			          width="1199"
-			          srcset="400,900,1199"
-			          sizes="70vw"
 		         />
 		    </f:link.external>
 		 </div>
@@ -171,7 +169,7 @@ rot - häufig oder über weite Strecken lawinengefährdet"/>
 		<f:if condition="{route.uebersichtsbilder}">
 			  <div id="msBoxenItem" class="standard TeaserXLarge responsivepicture uebersicht">
                  <f:for each="{route.uebersichtsbilder}" as="uebersichtsbild" iteration="iterator">
-					<sms:image image="{uebersichtsbild.originalResource}" srcset="400, 600, 800, 1199" sizes="(min-width: 1200px) 1199px, (min-width: 900px) 800px, 100vw" maxWidth="1380" />		
+					<f:image image="{uebersichtsbild.originalResource}" maxWidth="1380" />		
 				  </f:for>
               </div>
 		  </f:if>		
