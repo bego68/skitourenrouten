@@ -9,16 +9,16 @@ call_user_func(
             'Golf.Skitourenrouten',
             'Skitouren',
             [
-                'Route' => 'list, show',
-                'Mountain' => 'list, show',
-                'Mountainregion' => 'list, show'
+                'Golf\Skitourenrouten\Controller\RouteController' => 'list, show',
+                'Golf\Skitourenrouten\ControllerMountainController' => 'list, show',
+                'Golf\Skitourenrouten\ControllerMountainregionController' => 'list, show'
             ],
             // non-cacheable actions
             [
-                'Mountainregion' => '',
-                'Mountain' => '',
-                'Route' => '',
-                'Map' => ''
+                'Golf\Skitourenrouten\ControllerMountainregionController' => '',
+                'Golf\Skitourenrouten\ControllerMountainController' => '',
+                'Golf\Skitourenrouten\ControllerRouteController' => '',
+                'Golf\Skitourenrouten\ControllerMapController' => ''
             ]
         );
 
