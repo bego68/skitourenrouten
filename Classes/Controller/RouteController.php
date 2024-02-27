@@ -15,6 +15,8 @@ namespace Golf\Skitourenrouten\Controller;
 use Golf\Skitourenrouten\Domain\Repository\RouteRepository;
 use TYPO3\CMS\Extbase\Annotation\Inject;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use Psr\Http\Message\ResponseInterface;
+use Golf\Skitourenrouten\Domain\Model\Route;
 
 /**
  * RouteController
@@ -44,10 +46,11 @@ class RouteController extends ActionController
      *
      * @return void
      */
-    public function listAction()
-    {
+    public function listAction():ResponseInterface
+    {   
         $routes = $this->routeRepository->findAll();
         $this->view->assign('routes', $routes);
+		 return $this->htmlResponse();
     }
 
     /**
@@ -56,9 +59,10 @@ class RouteController extends ActionController
      * @param \Golf\Skitourenrouten\Domain\Model\Route $route
      * @return void
      */
-    public function showAction(\Golf\Skitourenrouten\Domain\Model\Route $route)
+    public function showAction(Route $route):ResponseInterface
     {
         $this->view->assign('route', $route);
+		return $this->htmlResponse();
     }
 	
 	

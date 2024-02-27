@@ -44,7 +44,7 @@ class MountainregionControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
         $mountainregionRepository->expects(self::once())->method('findAll')->will(self::returnValue($allMountainregions));
         $this->inject($this->subject, 'mountainregionRepository', $mountainregionRepository);
 
-        $view = $this->getMockBuilder(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface::class)->getMock();
+        $view = $this->getMockBuilder(TYPO3Fluid\Fluid\View\ViewInterface::class)->getMock();
         $view->expects(self::once())->method('assign')->with('mountainregions', $allMountainregions);
         $this->inject($this->subject, 'view', $view);
 
@@ -58,7 +58,7 @@ class MountainregionControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $mountainregion = new \Golf\Skitourenrouten\Domain\Model\Mountainregion();
 
-        $view = $this->getMockBuilder(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface::class)->getMock();
+        $view = $this->getMockBuilder(TYPO3Fluid\Fluid\View\ViewInterface::class)->getMock();
         $this->inject($this->subject, 'view', $view);
         $view->expects(self::once())->method('assign')->with('mountainregion', $mountainregion);
 

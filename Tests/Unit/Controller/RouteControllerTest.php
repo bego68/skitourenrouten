@@ -44,7 +44,7 @@ class RouteControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
         $routeRepository->expects(self::once())->method('findAll')->will(self::returnValue($allRoutes));
         $this->inject($this->subject, 'routeRepository', $routeRepository);
 
-        $view = $this->getMockBuilder(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface::class)->getMock();
+        $view = $this->getMockBuilder(TYPO3Fluid\Fluid\View\ViewInterface::class)->getMock();
         $view->expects(self::once())->method('assign')->with('routes', $allRoutes);
         $this->inject($this->subject, 'view', $view);
 
@@ -58,7 +58,7 @@ class RouteControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $route = new \Golf\Skitourenrouten\Domain\Model\Route();
 
-        $view = $this->getMockBuilder(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface::class)->getMock();
+        $view = $this->getMockBuilder(TYPO3Fluid\Fluid\View\ViewInterface::class)->getMock();
         $this->inject($this->subject, 'view', $view);
         $view->expects(self::once())->method('assign')->with('route', $route);
 
