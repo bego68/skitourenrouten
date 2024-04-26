@@ -329,7 +329,7 @@ return [
 			'config' => [
 				'type' => 'file',
 				'maxitems' => 5,
-				'allowed' => 'common-image-types'
+				'allowed' => 'gpx'
 			],
         ],
         'uebersichtsbilder' => [
