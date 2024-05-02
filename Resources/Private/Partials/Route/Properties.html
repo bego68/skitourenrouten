@@ -155,11 +155,59 @@
 		  </div>
 		</div>	   
      
+	<div class="container">
+		<div id="mapid"></div>
+	</div>
+	
+	
+			<!-- ======================== Script for maps ================================ -->	
 
-		<div class="container">
-			<div id="mapid"></div>
-		</div>
-		
+			  <script>
+				// initialize the map on the "map" div with a given center and zoom
+				var map = L.map('mapid').setView([{route.mountains.0.latitude}, {route.mountains.0.longitude}], 13);
+				// create a new tile layer
+				var tileUrl = 'https://tile.thunderforest.com/cycle/<f:format.raw>{</f:format.raw>z<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>x<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>y<f:format.raw>}</f:format.raw>.png?apikey=7d7c2e128abd4a76bc68dbd070ba94db',
+				layer = new L.TileLayer(tileUrl, {maxZoom: 18});
+                var gipfelIcon = L.icon(<f:format.raw>{</f:format.raw>
+					iconUrl: '/fileadmin/images/pin_gipfel.png',
+					iconSize:     [38, 95], // size of the icon
+					shadowSize:   [50, 64], // size of the shadow
+					iconAnchor:   [-10,78], // point of the icon which will correspond to marker's location
+					shadowAnchor: [4, 62],  // the same for the shadow
+					popupAnchor:  [23, -76] // point from which the popup should open relative to the iconAnchor
+				<f:format.raw>}</f:format.raw>);
+				var latitude =  {route.mountains.0.latitude};
+				var longitude = {route.mountains.0.longitude};
+				var gipfelmarker = L.marker([latitude,longitude ],<f:format.raw>{</f:format.raw>icon: gipfelIcon<f:format.raw>}</f:format.raw>);
+
+				var gpxurl = '{route.track.0.originalResource.publicUrl}'; // URL to your GPX file or the GPX itself
+
+				map.addLayer(layer);  
+				new L.GPX(gpxurl, {
+				  async: true,
+				  marker_options: {
+					startIconUrl: '/fileadmin/images/pin-icon-start.png',
+					endIconUrl: '/fileadmin/images/pin-icon-end.png',
+					shadowUrl: '/fileadmin/images/pin-shadow.png'
+				  },
+				  polyline_options: {
+					color: 'green',
+					opacity: 0.75,
+					weight: 3,
+					lineCap: 'round',
+					attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.thunderforest.com/">Thunderforest</a>',
+
+				 }
+				}).on('loaded', function(e) {
+				  map.fitBounds(e.target.getBounds());
+				}).addTo(map);
+
+				gipfelmarker.addTo(map);  
+				gipfelmarker.bindPopup("<b>{route.mountains.0.name}</b><br>{route.mountains.0.height}m").openPopup();  
+
+			  </script>	
+	
+	</div>
 		<div class="route-properties">
           <f:if condition="{route.kurzcharakteristik}">
 			  <div class="container">
@@ -305,61 +353,7 @@
             <button type="button" class="btn btn-primary" onclick="history.go(-1); return false;">Zurück</buuton>
     </div>
     
-<!-- ======================== Scripz for maps ================================ -->	
-	
-  <script>
-    // initialize the map on the "map" div with a given center and zoom
-    var map = L.map('mapid').setView([{route.mountains.0.latitude}, {route.mountains.0.longitude}], 13);
-    // create a new tile layer
-    var tileUrl = 'https://tile.thunderforest.com/cycle/<f:format.raw>{</f:format.raw>z<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>x<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>y<f:format.raw>}</f:format.raw>.png?apikey=7d7c2e128abd4a76bc68dbd070ba94db',
-    layer = new L.TileLayer(tileUrl, {maxZoom: 18});
-	
-	var gipfelmarker = L.marker([{route.mountains.0.latitude}, {route.mountains.0.longitude}]);
-	  
-	var gpxurl = '{route.track.0.originalResource.publicUrl}'; // URL to your GPX file or the GPX itself
- 
-    map.addLayer(layer);  
-	gipfelmarker.addTo(map);  
-	gipfelmarker.bindPopup("<b>{route.mountains.0.name}</b><br>{route.mountains.0.height}m").openPopup();  
-    new L.GPX(gpxurl, {
-      async: true,
-      marker_options: {
-        startIconUrl: 'fileadmin/images/pin-icon-start.png',
-        endIconUrl: 'fileadmin/images/pin-icon-end.png',
-        shadowUrl: 'fileadmin/images/pin-shadow.png'
-      },
-      polyline_options: {
-        color: 'green',
-        opacity: 0.75,
-        weight: 3,
-        lineCap: 'round',
-	    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.thunderforest.com/">Thunderforest</a>',
-  
-     }
-    }).on('loaded', function(e) {
-      map.fitBounds(e.target.getBounds());
-    }).addTo(map);
-	 
-    $( function() { 
-		
-  var aktionkids = $( ".responsivepicture.aktion" ).children();
-  if ( aktionkids.length > 1) {
-    $( aktionkids ).last().fadeOut(7000, function hidePrev() {
-    
-       if (!$(this).prev("img").is(":first-child") ){
-         $(this).prev("img").delay( 5000 ).fadeOut(7000, hidePrev);
-       }else {
-         $( aktionkids ).delay( 5000 ).fadeIn(7000);
-         $( aktionkids ).last().delay( 5000 ).fadeOut(7000, hidePrev);
-       }
-    
-    });
-  }	  
-    
- }); 
-   
-	  
-  </script>
+
 		
 		
 
