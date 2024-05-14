@@ -9,13 +9,11 @@
 			   </f:format.htmlentitiesDecode>
             </n:titleTag>
     <div class="container">	
-		<div id="funktionsbuttons" class="">
-		   <a href="{route.track.0.originalResource.publicUrl}">
+		<div id="funktionsbuttons" class=""> <h4 align=right> 
+		   <a href="{route.track.0.originalResource.publicUrl}">GPS-Track
 			 <f:image src="fileadmin/images/trackDownload.png" width="50px" height="50px" alt="Track Download" title="GPS-Track als .gpx-Datei herunterladen"/>  
-			  </a>
-			  <a href="//pdfcrowd.com/url_to_pdf/">
-		   <f:image src="fileadmin/images/pdfDownload.png"  width="50px" height="50px" alt="PDF Download" title="Als PDF-Datei herunterladen" />
-		  </a>
+			  </a></h4>
+			  
 		</div>
 		<h4>Skitour {route.mountainregions.0.name} - {route.mountains.0.name} 	({route.mountains.0.height} m)</h4>
 	</div>
@@ -211,7 +209,7 @@
 		<div class="route-properties">
           <f:if condition="{route.kurzcharakteristik}">
 			  <div class="container">
-              <h1><f:format.html>{route.kurzcharakteristik}</f:format.html></h1>
+              <h2><f:format.html>{route.kurzcharakteristik}</f:format.html></h2>
               </div>
 		  </f:if>	  
           <f:if condition="{route.description}">
@@ -220,7 +218,7 @@
             </div>
 		  </f:if>
 	     </div>
-			<!--     =====================   Werbebanner - Anfang   =====================       -->
+			<!--     =====================   Werbebanner - Anfang   =====================      
 		 
 		<div class="container">  
 		  <figure class="image">
@@ -239,7 +237,7 @@
 		    </f:link.external>
 		  </figure>	  
 	   </div>
-<!--  =====================   Werbebanner - Ende  =====================  -->
+  =====================   Werbebanner - Ende  =====================  -->
 	
 	  <div class="container">
 		<div class="section-row route-properties">
