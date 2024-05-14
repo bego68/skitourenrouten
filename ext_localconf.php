@@ -1,24 +1,21 @@
 <?php
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3') || die('Access denied.');
 
 call_user_func(
     function()
     {
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'Golf.Skitourenrouten',
+            'Skitourenrouten',
             'Skitouren',
             [
-                'Route' => 'list, show',
-                'Mountain' => 'list, show',
-                'Mountainregion' => 'list, show'
+                \Golf\Skitourenrouten\Controller\RouteController::class => 'list, show',
+                \Golf\Skitourenrouten\ControllerMountainController::class => 'list, show',
+                \Golf\Skitourenrouten\ControllerMountainregionController::class => 'list, show'
             ],
             // non-cacheable actions
             [
-                'Mountainregion' => '',
-                'Mountain' => '',
-                'Route' => '',
-                'Map' => ''
+              
             ]
         );
 

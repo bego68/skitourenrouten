@@ -44,7 +44,7 @@ class MountainControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
         $mountainRepository->expects(self::once())->method('findAll')->will(self::returnValue($allMountains));
         $this->inject($this->subject, 'mountainRepository', $mountainRepository);
 
-        $view = $this->getMockBuilder(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface::class)->getMock();
+        $view = $this->getMockBuilder(TYPO3Fluid\Fluid\View\ViewInterface::class)->getMock();
         $view->expects(self::once())->method('assign')->with('mountains', $allMountains);
         $this->inject($this->subject, 'view', $view);
 
@@ -58,7 +58,7 @@ class MountainControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $mountain = new \Golf\Skitourenrouten\Domain\Model\Mountain();
 
-        $view = $this->getMockBuilder(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface::class)->getMock();
+        $view = $this->getMockBuilder(TYPO3Fluid\Fluid\View\ViewInterface::class)->getMock();
         $this->inject($this->subject, 'view', $view);
         $view->expects(self::once())->method('assign')->with('mountain', $mountain);
 

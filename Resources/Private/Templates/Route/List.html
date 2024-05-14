@@ -3,7 +3,34 @@
 
 
 	<f:section name="content">
-
+		<div class="card-group-element card-group-element-align-left card-group-element-columns-4">
+			<f:for each="{routes}" as="route">
+				<div class="card-group-element-item">
+					<div class="card">
+						<div class="card-body">
+						   <h4 class="card-title">
+							 <f:if condition="{route.mountains}">
+								  <f:format.html> {route.mountains.0.name}	({route.mountains.0.height} m)</f:format.html>
+								</f:if>
+							</h4>
+							<p>
+								<f:link.action 
+												   action="show" 
+												   pageUid="2392" 
+												   arguments="{route : route}"
+								>
+									<span class="stern_ski  stern{route.schoenheit}_ski"> </span><br>
+									{route.routenname} 
+								</f:link.action>
+							</p>
+						</div>
+					</div>
+				</div>
+			</f:for>
+		</div>
+		
+		
+<!--
 		<table  class="tx_skitourenrouten" >
 			<tr>
 				<th><f:translate key="tx_skitourenrouten_domain_model_route.mountains" /></th>
@@ -21,7 +48,7 @@
 										</tr>
 			</f:for>
 		</table>
-
+-->
 </f:section>
 
 </html>

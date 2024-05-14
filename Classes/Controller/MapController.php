@@ -1,6 +1,5 @@
 <?php
 namespace Golf\Skitourenrouten\Controller;
-
 /***
  *
  * This file is part of the "Skitouren-Routen" Extension for TYPO3 CMS.
@@ -11,12 +10,12 @@ namespace Golf\Skitourenrouten\Controller;
  *  (c) 2018 Hubertus Golf <info@berti-golf.de>, Volleyballserver
  *
  ***/
+use \TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * MapController
  */
-class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
-{
+class MapController extends ActionController{
     /**
      * mapRepository
      *

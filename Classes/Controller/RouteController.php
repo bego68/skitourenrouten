@@ -12,31 +12,45 @@ namespace Golf\Skitourenrouten\Controller;
  *
  ***/
 
-use \Golf\Skitourenrouten\Domain\Repository\RouteRepository;
+use Golf\Skitourenrouten\Domain\Repository\RouteRepository;
 use TYPO3\CMS\Extbase\Annotation\Inject;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use Psr\Http\Message\ResponseInterface;
+use Golf\Skitourenrouten\Domain\Model\Route;
 
 /**
  * RouteController
  */
-class RouteController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class RouteController extends ActionController
 {
     /**
      * routeRepository
      *
      * @var \Golf\Skitourenrouten\Domain\Repository\RouteRepository
-     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $routeRepository = null;
+    
+	
+  /**
+	 * injectRouteRepository
+	 *
+	 * @param RouteRepository $routesRepository
+	 * @return void
+	 */
+	public function injectRouteRepository(RouteRepository $routeRepository) {
+		$this->routeRepository = $routeRepository;
+	}
 
     /**
      * action list
      *
      * @return void
      */
-    public function listAction()
-    {
+    public function listAction():ResponseInterface
+    {   
         $routes = $this->routeRepository->findAll();
         $this->view->assign('routes', $routes);
+		 return $this->htmlResponse();
     }
 
     /**
@@ -45,8 +59,12 @@ class RouteController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * @param \Golf\Skitourenrouten\Domain\Model\Route $route
      * @return void
      */
-    public function showAction(\Golf\Skitourenrouten\Domain\Model\Route $route)
+    public function showAction(Route $route):ResponseInterface
     {
         $this->view->assign('route', $route);
+		return $this->htmlResponse();
     }
+	
+	
+	
 }

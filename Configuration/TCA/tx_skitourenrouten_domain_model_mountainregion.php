@@ -5,8 +5,7 @@ return [
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
-        'sortby' => 'sorting',
+       'sortby' => 'sorting',
         'versioningWS' => true,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -20,9 +19,7 @@ return [
         'searchFields' => 'name',
         'iconfile' => 'EXT:skitourenrouten/Resources/Public/Icons/tx_skitourenrouten_domain_model_mountainregion.gif'
     ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name',
-    ],
+    'interface' => [],
     'types' => [
         '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
@@ -31,34 +28,10 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'special' => 'languages',
-                'items' => [
-                    [
-                        'LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages',
-                        -1,
-                        'flags-multiple'
-                    ]
-                ],
-                'default' => 0,
+                'type' => 'language',
             ],
         ],
-        'l10n_parent' => [
-            'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => true,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'default' => 0,
-                'items' => [
-                    ['', 0],
-                ],
-                'foreign_table' => 'tx_skitourenrouten_domain_model_mountainregion',
-                'foreign_table_where' => 'AND tx_skitourenrouten_domain_model_mountainregion.pid=###CURRENT_PID### AND tx_skitourenrouten_domain_model_mountainregion.sys_language_uid IN (-1,0)',
-            ],
-        ],
+
         'l10n_diffsource' => [
             'config' => [
                 'type' => 'passthrough',
@@ -72,15 +45,16 @@ return [
                 'max' => 255,
             ],
         ],
+         
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'default' => 0,
                 'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.enabled'
-                    ]
+                    ['label' => '', 'value' => '']
                 ],
             ],
         ],
@@ -91,12 +65,15 @@ return [
             ],
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'size' => 13,
-                'eval' => 'datetime',
-                'default' => 0,
-            ],
+				'type' => 'datetime',
+         		'format' => 'date',
+				'size' => 13,
+				'checkbox' => 0,
+				'default' => 0,
+				'range' => [
+					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
+				],
+			],
         ],
         'endtime' => [
             'exclude' => true,
@@ -105,15 +82,15 @@ return [
             ],
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'size' => 13,
-                'eval' => 'datetime',
-                'default' => 0,
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ],
-            ],
+				'type' => 'datetime',
+         		'format' => 'date',
+				'size' => 13,
+				'checkbox' => 0,
+				'default' => 0,
+				'range' => [
+					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
+				],
+			],
         ],
 
         'name' => [

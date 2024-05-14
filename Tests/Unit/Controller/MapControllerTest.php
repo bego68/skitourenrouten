@@ -44,7 +44,7 @@ class MapControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
         $mapRepository->expects(self::once())->method('findAll')->will(self::returnValue($allMaps));
         $this->inject($this->subject, 'mapRepository', $mapRepository);
 
-        $view = $this->getMockBuilder(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface::class)->getMock();
+        $view = $this->getMockBuilder(TYPO3Fluid\Fluid\View\ViewInterface::class)->getMock();
         $view->expects(self::once())->method('assign')->with('maps', $allMaps);
         $this->inject($this->subject, 'view', $view);
 

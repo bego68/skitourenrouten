@@ -1,205 +1,329 @@
-{namespace geo=Bertigolf\Bertigolfnewsgeo\ViewHelpers}
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" 
 	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers"
+	  xmlns:geo="http://typo3.org/ns/Bertigolf/Bertigolfnewsgeo/ViewHelpers"
 	  data-namespace-typo3-fluid="true">
 	          
 	       <n:titleTag>
               <f:format.htmlentitiesDecode>Skitour {route.mountainregions.0.name}: {route.routenname}    
 			   </f:format.htmlentitiesDecode>
             </n:titleTag>
-	
-	<div id="funktionsbuttons" class="">
-	   <a href="{route.track.0.originalResource.publicUrl}">
-	     <f:image src="fileadmin/images/trackDownload.png" width="50px" height="50px" alt="Track Download" title="GPS-Track als .gpx-Datei herunterladen"/>  
-          </a>
-          <a href="//pdfcrowd.com/url_to_pdf/">
-	   <f:image src="fileadmin/images/pdfDownload.png"  width="50px" height="50px" alt="PDF Download" title="Als PDF-Datei herunterladen" />
-	  </a>
-	</div>
-	<h3>Skitour {route.mountainregions.0.name} - {route.mountains.0.name}
-	({route.mountains.0.height} m)</h3>
-	<h1> {route.routenname}</h1>
-	<div id="msBoxen" class="skitouren">
-          <div id="msBoxenItem" class="">
-            <table> 
-              <tr>
-                <th>Schwierigkeit
-				  <f:image src="fileadmin/images/Info.png" width="20px" height="20px" alt="Infos" 
-						   title="Gesamtanforderungen
-	1 - leichte Tour auch für Anfänger
-	2 - mäßig schwierige Tour, erfordert etwas Erfahrung und Kondition
-	3 - anspruchsvolle Skitour für erfahrene Skibergsteiger
-	4 - schwierige Tour für erfahrene, fitte und sichere Skibergsteiger  
-	5 - sehr schwierige Winternehmung 
-																										 
-Skitechnische Bewertung
-	L  - leicht, flache Hänge ohne Engstellen
-	WS - wenig schwierig, mäßig steiles Gelände um 30 Grad
-	ZS - ziemlich schwierig, steiles Gelände um 35 Grad
-	S  - schwierig, steiles Gelände um 40 Grad, teils Absturzgefahr
-	SS - sehr schwierig, sehr steiles absturzgefährdetes Gelände um 45 Grad"/>
-				  </th>
-                <th>Gesamteindruck</th>
-              </tr>
-              <tr>
-                <td>
-                <f:switch expression="{route.gesamtanspruch}">
-                   <f:case value="10">1</f:case>
-                   <f:case value="15">1-2</f:case>
-                   <f:case value="20">2</f:case>
-                   <f:case value="25">2-3</f:case>
-                   <f:case value="30">3</f:case>
-                   <f:case value="35">3-4</f:case>
-                   <f:case value="40">4</f:case>
-                   <f:case value="45">4-5</f:case>
-                   <f:case value="50">5</f:case> 
-	        </f:switch>
-                / {route.skitechnischebewertung}</td>
-                <td class="stern_ski  stern{route.schoenheit}_ski"><span> </span></td>
-              </tr>
-            </table>
-           </div>
-            <div id="msBoxenItem" class="">
-            <table > 
-              <tr>
-                <th>Höhenmeter</th>
-                <th>Gehzeit
-				  <f:image src="fileadmin/images/Info.png" width="20px" height="20px" alt="Infos" 
-						   title="Übliche Gehzeit ohne Pausen nur für den Aufstieg. 
-Ausnahme: Rundtouren mit Gegenanstiegen - hier gebe ich die Gesamtzeit (Ges.) inclusive Abfahrt(en) an. Berechnungsgrundlage ist eine kleine Gruppen mit guten Skifahrern."/>
-				  </th>
-              </tr>
-              <tr>
-                <td>{route.hoehenmeter} m</td>
-                <td>{route.gehzeit} h</td>
-              </tr>
-            </table>
-           </div>
-            <div id="msBoxenItem" class="">
-            <table > 
-              <tr>
-                <th>Exposition</th>
-                <th>Lawinengefahr
-					<f:image src="fileadmin/images/Info.png" width="20px" height="20px" alt="Infos" 
-						   title="grün - kaum lawinengefährdet
-gelb - manchmal stellenweise lawinengefährdet
-orange - öfter oder über längere Strecken lawinengefährdet
-rot - häufig oder über weite Strecken lawinengefährdet"/>
-				  </th>
-              </tr>
-              <tr>
-                <td>{route.hangexposition}</td>
-                <td class="lawinengefahr lawinengefahr{route.lawinengefahr}"><span> </span></td>
-              </tr>
-            </table>
-           </div>
-            <div id="msBoxenItem" class="">
-            <table> 
-              <tr>
-                <th>Beliebtheit</th>
-				<f:if condition="{route.guide}">
-                   <th rowspan="2"><f:render section="guide" arguments="{newsItem:route.guide.0}"/></th>
-			    </f:if>
-              </tr>
-              <tr>
-                <td class="frequenz_ski frequenz{route.beliebtheit}_ski"><span> </span></td>
-              </tr>
-            </table>
-           </div>
-        </div>
-           <pagebreak/>
-        <div id="msBoxen" class="skitouren_aktion">
-	       <f:if condition="{route.aktionbilder}">
-			  <div id="msBoxenItem" class="standard TeaserLarge responsivepicture aktion">
-                 <f:for each="{route.aktionbilder}" as="aktionbild" iteration="iterator">
-					<f:image image="{aktionbild.originalResource}" maxWidth="900" />				  
-				  </f:for>
-              </div>
-		  </f:if>
-			  <div id="msBoxenItem" class="standard TeaserLarge map">
-			     <div id="mapid"></div>
-			  </div>
+    <div class="container">	
+		<div id="funktionsbuttons" class=""> <h4 align=right> 
+		   <a href="{route.track.0.originalResource.publicUrl}">GPS-Track
+			 <f:image src="fileadmin/images/trackDownload.png" width="50px" height="50px" alt="Track Download" title="GPS-Track als .gpx-Datei herunterladen"/>  
+			  </a></h4>
+			  
 		</div>
-		<div id="msBoxen" class="skitouren">
+		<h4>Skitour {route.mountainregions.0.name} - {route.mountains.0.name} 	({route.mountains.0.height} m)</h4>
+	</div>
+	
+	 <div class="section section-default" >
+	   <div class="section-head">
+		   <div class="container">
+				<h1> {route.routenname}</h1>
+		   </div>
+			<div class="container">
+			  <div class="section-row">
+				<div class="section-column section-column-fourth">
+					<table> 
+						<tr>
+							<th>Schwierigkeit
+								<f:image src="fileadmin/images/Info.png" width="20px" height="20px" alt="Infos" 
+										 title="Gesamtanforderungen
+	  1 - leichte Tour auch für Anfänger
+	  2 - mäßig schwierige Tour, erfordert etwas Erfahrung und Kondition
+	  3 - anspruchsvolle Skitour für erfahrene Skibergsteiger
+	  4 - schwierige Tour für erfahrene, fitte und sichere Skibergsteiger  
+	  5 - sehr schwierige Winternehmung 
+
+	Skitechnische Bewertung
+	  L  - leicht, flache Hänge ohne Engstellen
+	  WS - wenig schwierig, mäßig steiles Gelände um 30 Grad
+	  ZS - ziemlich schwierig, steiles Gelände um 35 Grad
+	  S  - schwierig, steiles Gelände um 40 Grad, teils Absturzgefahr
+	  SS - sehr schwierig, sehr steiles absturzgefährdetes Gelände um 45 Grad"/>
+							</th>
+							<th>Gesamteindruck</th>
+						</tr>
+						<tr>
+							<td>
+								<f:switch expression="{route.gesamtanspruch}">
+									<f:case value="10">1</f:case>
+									<f:case value="15">1-2</f:case>
+									<f:case value="20">2</f:case>
+									<f:case value="25">2-3</f:case>
+									<f:case value="30">3</f:case>
+									<f:case value="35">3-4</f:case>
+									<f:case value="40">4</f:case>
+									<f:case value="45">4-5</f:case>
+									<f:case value="50">5</f:case> 
+								</f:switch>
+								/ {route.skitechnischebewertung}</td>
+							<td class="stern_ski  stern{route.schoenheit}_ski"><span> </span></td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="section-column section-column-fourth">
+					<table > 
+					  <tr>
+						<th>Höhenmeter</th>
+						<th>Gehzeit
+						  <f:image src="fileadmin/images/Info.png" width="20px" height="20px" alt="Infos" 
+								   title="Übliche Gehzeit ohne Pausen nur für den Aufstieg. 
+	Ausnahme: Rundtouren mit Gegenanstiegen - hier gebe ich die Gesamtzeit (Ges.) inclusive Abfahrt(en) an. 
+			  Berechnungsgrundlage ist eine kleine Gruppen mit guten Skifahrern."/>
+						  </th>
+					  </tr>
+					  <tr>
+						<td>{route.hoehenmeter} m</td>
+						<td>{route.gehzeit} h</td>
+					  </tr>
+					</table>
+				</div>
+				<div class="section-column section-column-fourth">
+					<table > 
+					  <tr>
+						<th>Exposition</th>
+						<th>Lawinengefahr
+							<f:image src="fileadmin/images/Info.png" width="20px" height="20px" alt="Infos" 
+								   title="grün - kaum lawinengefährdet
+	gelb - manchmal stellenweise lawinengefährdet
+	orange - öfter oder über längere Strecken lawinengefährdet
+	rot - häufig oder über weite Strecken lawinengefährdet"/>
+						  </th>
+					  </tr>
+					  <tr>
+						<td>{route.hangexposition}</td>
+						<td class="lawinengefahr lawinengefahr{route.lawinengefahr}"><span> </span></td>
+					  </tr>
+					</table>
+				</div>
+				<div class="section-column section-column-fourth">
+					<table>
+					  <tr>
+						<th>Beliebtheit</th>
+					  </tr>
+					  <tr>
+						<td class="frequenz_ski frequenz{route.beliebtheit}_ski"><span> </span></td>
+					  </tr>
+					</table>
+			   </div>
+			</div>
+		  </div>
+		</div>
+		<f:if condition="{route.guide}"><f:render section="guide" arguments="{newsItem:route.guide.0}"/></f:if>	 
+	  </div>
+	
+	
+			   <pagebreak/>
+
+		<!-- ================== Actionbilder ===============================-->
+	   <div class="container">
+		   <div class="gallery-row route-properties">
+			  <f:for each="{route.aktionbilder}" as="actionbild" iteration="iterator">
+				  <div class="gallery-item gallery-item-size-2"> 
+					 <div class="mediaelement mediaelement-image">
+						 <figure class="image">
+							 <bk2k:link.lightbox
+									image="{actionbild}"
+									maxHeight="{settings.lightbox.image.maxHeight}"
+									maxWidth="{settings.lightbox.image.maxWidth}"
+									class="lightbox"
+									rel="skitour-001"
+									lightbox-title="{actionbild.originalResource.properties.title}"
+									lightbox-caption="{actionbild.originalResource.properties.description}"
+									lightbox-alt="{actionbild.originalResource.properties.alt}"																						
+							 > 
+								<picture>
+									<f:image 
+										 image="{actionbild.originalResource}"
+										 alt="{actionbild.originalResource.properties.alt}"  
+										 title="{actionbild.originalResource.properties.title}"
+										 width="1199"
+									/>
+								</picture>	
+								<div >{actionbild.originalResource.properties.description}</div>
+							</bk2k:link.lightbox>
+						 </figure>
+					 </div>	
+				  </div>
+			</f:for> 
+		  </div>
+		</div>	   
+     
+	<div class="container">
+		<div id="mapid"></div>
+	</div>
+	
+	
+			<!-- ======================== Script for maps ================================ -->	
+
+			  <script>
+				// initialize the map on the "map" div with a given center and zoom
+				var map = L.map('mapid').setView([{route.mountains.0.latitude}, {route.mountains.0.longitude}], 13);
+				// create a new tile layer
+				var tileUrl = 'https://tile.thunderforest.com/cycle/<f:format.raw>{</f:format.raw>z<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>x<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>y<f:format.raw>}</f:format.raw>.png?apikey=7d7c2e128abd4a76bc68dbd070ba94db',
+				layer = new L.TileLayer(tileUrl, {maxZoom: 18});
+                var gipfelIcon = L.icon(<f:format.raw>{</f:format.raw>
+					iconUrl: '/fileadmin/images/pin_gipfel.png',
+					iconSize:     [38, 95], // size of the icon
+					shadowSize:   [50, 64], // size of the shadow
+					iconAnchor:   [-10,78], // point of the icon which will correspond to marker's location
+					shadowAnchor: [4, 62],  // the same for the shadow
+					popupAnchor:  [23, -76] // point from which the popup should open relative to the iconAnchor
+				<f:format.raw>}</f:format.raw>);
+				var latitude =  {route.mountains.0.latitude};
+				var longitude = {route.mountains.0.longitude};
+				var gipfelmarker = L.marker([latitude,longitude ],<f:format.raw>{</f:format.raw>icon: gipfelIcon<f:format.raw>}</f:format.raw>);
+
+				var gpxurl = '{route.track.0.originalResource.publicUrl}'; // URL to your GPX file or the GPX itself
+
+				map.addLayer(layer);  
+				new L.GPX(gpxurl, {
+				  async: true,
+				  marker_options: {
+					startIconUrl: '/fileadmin/images/pin-icon-start.png',
+					endIconUrl: '/fileadmin/images/pin-icon-end.png',
+					shadowUrl: '/fileadmin/images/pin-shadow.png'
+				  },
+				  polyline_options: {
+					color: 'green',
+					opacity: 0.75,
+					weight: 3,
+					lineCap: 'round',
+					attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.thunderforest.com/">Thunderforest</a>',
+
+				 }
+				}).on('loaded', function(e) {
+				  map.fitBounds(e.target.getBounds());
+				}).addTo(map);
+
+				gipfelmarker.addTo(map);  
+				gipfelmarker.bindPopup("<b>{route.mountains.0.name}</b><br>{route.mountains.0.height}m").openPopup();  
+
+			  </script>	
+	
+	</div>
+		<div class="route-properties">
           <f:if condition="{route.kurzcharakteristik}">
-			  <div id="msBoxenItem" class="standard TeaserXLarge">
-              <h3><f:format.html>{route.kurzcharakteristik}</f:format.html></h3>
+			  <div class="container">
+              <h2><f:format.html>{route.kurzcharakteristik}</f:format.html></h2>
               </div>
 		  </f:if>	  
           <f:if condition="{route.description}">
-			<div id="msBoxenItem" class="standard TeaserXLarge">
+			<div class="container">
               <f:format.html>{route.description}</f:format.html>
             </div>
 		  </f:if>
-			<!--
-    =====================   Werbebanner - Anfang   ===================== 
-            -->
-		  <div id="msBoxenItem" class="standard TeaserXLarge responsivepicture wandbild">  
-		    <f:link.external uri="https://ortovox.com/de-de/far-and-light?utm_source=markusstadler&utm_medium=banner&utm_campaign=awareness-farlight-summer23" 
-						  target="_blank" rel="nofollow">
-			     <f:image 
+	     </div>
+			<!--     =====================   Werbebanner - Anfang   =====================      
+		 
+		<div class="container">  
+		  <figure class="image">
+		    <f:link.external 
+                   uri="https://ortovox.com/de-de/far-and-light?utm_source=markusstadler&utm_medium=banner&utm_campaign=awareness-farlight-summer23" 
+				  target="_blank" rel="nofollow">
+			    
+			  <picture>  
+				<f:image 
 			          src="fileadmin/images/allgemeines/bannerOrtovox/230315_Online_Banner_Statisch_1200x148_LRZ_Far_Light_M.jpg" 
 			          alt="Ortovox - Far and Light Collection"  
 			          title="Ortovox - Far and Light Collection"
 			          width="1199"
 		         />
+			  </picture>
 		    </f:link.external>
-		 </div>
-	        <!--
-    =====================   Werbebanner - Ende  ===================== 
-              -->
+		  </figure>	  
+	   </div>
+  =====================   Werbebanner - Ende  =====================  -->
+	
+	  <div class="container">
+		<div class="section-row route-properties">
 		  <f:if condition="{route.anfahrt}">
-            <div id="msBoxenItem" class="standard TeaserLarge">
+             <div class="section-column section-column-half">
                <h4>Anfahrt</h4>
                <f:format.html>{route.anfahrt}</f:format.html>
             </div>
 		  </f:if>
           <f:if condition="{route.ausgangspunkt}">
-			<div id="msBoxenItem" class="standard TeaserLarge">
+			 <div class="section-column section-column-half">
                <h4>Ausgangspunkt</h4>
                <f:format.html>{route.ausgangspunkt}</f:format.html>
             </div>
 		  </f:if>
           <f:if condition="{route.routenverlauf}">
-			<div id="msBoxenItem" class="standard TeaserXLarge">
+			 <div class="section-column section-column-total">
               <h4>Routenverlauf</h4>
               <f:format.html>{route.routenverlauf}</f:format.html>
             </div>
 	      </f:if>
-		<f:if condition="{route.uebersichtsbilder}">
-			  <div id="msBoxenItem" class="standard TeaserXLarge responsivepicture uebersicht">
-                 <f:for each="{route.uebersichtsbilder}" as="uebersichtsbild" iteration="iterator">
-					<f:image image="{uebersichtsbild.originalResource}" maxWidth="1380" />		
-				  </f:for>
-              </div>
-		  </f:if>		
+	   </div>
+	</div>
+	<!-- ================== Übersichtsbilder ===============================-->
+	<div class="container">
+		<div class="gallery-row route-properties">
+			<f:for each="{route.uebersichtsbilder}" as="uebersichtsbild" iteration="iterator">
+				<div class="gallery-item gallery-item-size-2"> 
+					<div class="mediaelement mediaelement-image">
+						<figure class="image">
+							<bk2k:link.lightbox
+												image="{uebersichtsbild}"
+												maxHeight="{settings.lightbox.image.maxHeight}"
+												maxWidth="{settings.lightbox.image.maxWidth}"
+												class="lightbox"
+												rel="skitour-001"
+												lightbox-title="{uebersichtsbild.originalResource.properties.title}"
+												lightbox-caption="{uebersichtsbild.originalResource.properties.description}"
+												lightbox-alt="{uebersichtsbild.originalResource.properties.alt}"				
+												> 
+								<picture>
+									<f:image 
+											 image="{uebersichtsbild.originalResource}"
+											 alt="{uebersichtsbild.originalResource.properties.description.alt}"  
+											 title="{uebersichtsbild.originalResource.properties.description.title}"
+											 width="1199"
+											 />
+								</picture>	
+								<div >{uebersichtsbild.originalResource.properties.description}</div>
+							</bk2k:link.lightbox>
+						</figure>
+					</div>	
+				</div>
+			</f:for> 
+		</div>
+	</div>	  
+	<!-- ========================= route properties================================= -->
+	<div class="container">
+	   <div class="section-row route-properties">	
          <f:if condition="{route.abfahrt}">
-			<div id="msBoxenItem" class="standard TeaserLarge">
+		   <div class="section-column section-column-half">
              <h4>Abfahrt</h4>
              <f:format.html>{route.abfahrt}</f:format.html>
             </div>
          </f:if>
 		 <f:if condition="{route.varianten}">
-			<div id="msBoxenItem" class="standard TeaserLarge">
+		   <div class="section-column section-column-half">
              <h4>Varianten</h4>
              <f:format.html>{route.varianten}</f:format.html>
             </div>
          </f:if>
          <f:if condition="{route.hinweise}">
-		   <div id="msBoxenItem" class="standard TeaserLarge">
+		   <div class="section-column section-column-half">
             <h4>Hinweise</h4>
             <f:format.html>{route.hinweise}</f:format.html>
            </div>
          </f:if>
           <f:if condition="{route.quelle}">
-            <div id="msBoxenItem" class="standard TeaserLarge">
+           <div class="section-column section-column-half">
               <h4>Quelle</h4>
               <f:format.html>{route.quelle}</f:format.html>
             </div>  
           </f:if>
 			
 	    <f:if condition="{route.huette}">
-		   <div id="msBoxenItem" class="standard TeaserLarge">
+		   <div class="section-column section-column-half">
             <h4>Hütte</h4>
             <f:for each="{route.huette}" as="huette" iteration="iterator">
                    <f:render section="huette_detail" arguments="{newsItem:huette}"/>
@@ -207,8 +331,8 @@ rot - häufig oder über weite Strecken lawinengefährdet"/>
            </div>
          </f:if>
 		   
-			<f:if condition="{route.guide}">
-		   <div id="msBoxenItem" class="standard TeaserLarge">
+		 <f:if condition="{route.guide}">
+		   <div class="section-column section-column-half">
             <h4>Führer</h4>
             <f:for each="{route.guide}" as="guide" iteration="iterator">
                    <f:render section="guide_detail" arguments="{newsItem:guide}"/>
@@ -216,85 +340,38 @@ rot - häufig oder über weite Strecken lawinengefährdet"/>
            </div>
          </f:if>
           <f:if condition="{route.maps}">
-            <div id="msBoxenItem" class="standard TeaserLarge">
+             <div class="section-column section-column-half">
               <h4>Karten</h4>
               <f:render section="maps" arguments="{maps:route.maps}"/>
             </div>  
           </f:if>
-          <div id="msBoxenItem" class="standard TeaserXLarge">
-            <a href="" onclick="history.go(-1); return false;">Zurück</a>
-          </div>
-      </div>
-		
-  <script>
-    // initialize the map on the "map" div with a given center and zoom
-    var map = L.map('mapid').setView([{route.mountains.0.latitude}, {route.mountains.0.longitude}], 13);
-    // create a new tile layer
-    var tileUrl = 'https://tile.thunderforest.com/cycle/<f:format.raw>{</f:format.raw>z<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>x<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>y<f:format.raw>}</f:format.raw>.png?apikey=7d7c2e128abd4a76bc68dbd070ba94db',
-    layer = new L.TileLayer(tileUrl, {maxZoom: 18});
-	
-	var gipfelmarker = L.marker([{route.mountains.0.latitude}, {route.mountains.0.longitude}]);
-	  
-	var gpxurl = '{route.track.0.originalResource.publicUrl}'; // URL to your GPX file or the GPX itself
- 
-    map.addLayer(layer);  
-	gipfelmarker.addTo(map);  
-	gipfelmarker.bindPopup("<b>{route.mountains.0.name}</b><br>{route.mountains.0.height}m").openPopup();  
-    new L.GPX(gpxurl, {
-      async: true,
-      marker_options: {
-        startIconUrl: 'fileadmin/images/pin-icon-start.png',
-        endIconUrl: 'fileadmin/images/pin-icon-end.png',
-        shadowUrl: 'fileadmin/images/pin-shadow.png'
-      },
-      polyline_options: {
-        color: 'green',
-        opacity: 0.75,
-        weight: 3,
-        lineCap: 'round',
-	    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.thunderforest.com/">Thunderforest</a>',
-  
-     }
-    }).on('loaded', function(e) {
-      map.fitBounds(e.target.getBounds());
-    }).addTo(map);
-	 
-    $( function() { 
-		
-  var aktionkids = $( ".responsivepicture.aktion" ).children();
-  if ( aktionkids.length > 1) {
-    $( aktionkids ).last().fadeOut(7000, function hidePrev() {
+		</div>
+	</div>	
+    <div class="container">
+            <button type="button" class="btn btn-primary" onclick="history.go(-1); return false;">Zurück</buuton>
+    </div>
     
-       if (!$(this).prev("img").is(":first-child") ){
-         $(this).prev("img").delay( 5000 ).fadeOut(7000, hidePrev);
-       }else {
-         $( aktionkids ).delay( 5000 ).fadeIn(7000);
-         $( aktionkids ).last().delay( 5000 ).fadeOut(7000, hidePrev);
-       }
-    
-    });
-  }	  
-    
- }); 
-   
-	  
-  </script>
+
 		
 		
 
 <f:section name="guide">
-      <div class="news-img-wrap">
+      <div class="container guide">
         <geo:link newsItem="{newsItem}" settings="{settings}">
               <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
                 <f:if condition="{mediaElement.type} == 0">
-                  <f:image
-                    image="{mediaElement}"
-                    title="{mediaElement.title}"
-                    alt="{mediaElement.alt}"
-                    maxWidth="90"
-                    maxHeight="120"
-                    />
-                </f:if>
+				  <figure class="image">
+					<picture>
+					  <f:image
+						image="{mediaElement}"
+						title="{mediaElement.title}"
+						alt="{mediaElement.alt}"
+						maxWidth="120"
+						maxHeight="200"
+						/>
+					</picture>
+				  </figure>  
+				</f:if>
                 <f:if condition="{mediaElement.type} == 1">
                   <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}" />
                 </f:if>
@@ -310,62 +387,77 @@ rot - häufig oder über weite Strecken lawinengefährdet"/>
 	
 	
 <f:section name="guide_detail">
-      <div class="news-img-wrap">
+    <figure class="image guide_detail">
         <geo:link newsItem="{newsItem}" settings="{settings}">
               <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
                 <f:if condition="{mediaElement.type} == 0">
-                  <f:image
-                    image="{mediaElement}"
-                    title="{mediaElement.title}"
-                    alt="{mediaElement.alt}"
-                    maxWidth="150"
-                    maxHeight="200"
-                    />
-                </f:if>
-                <f:if condition="{mediaElement.type} == 1">
-                  <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}" />
-                </f:if>
-                <f:if condition="{mediaElement.type} == 2">
-                  <f:render partial="Detail/MediaHtml" arguments="{mediaElement: mediaElement}" />
+				  
+					<picture>	
+						  <f:image
+							image="{mediaElement}"
+							title="{mediaElement.title}"
+							alt="{mediaElement.alt}"
+							maxWidth="200"
+							maxHeight="250"
+							/>
+					</picture>
+					<p>{newsItem.title}</p>  
+				    
                 </f:if>
               </f:alias>
-			{newsItem.title}
+			
         </geo:link>
-      </div>
+    </figure>
+	<div style="clear:left;"></div>
 </f:section>
 	
 <f:section name="huette_detail">
       <div class="news-img-wrap">
-        <geo:link newsItem="{newsItem}" settings="{settings}">
+		<figure class="image huette_detail">  
+          <geo:link newsItem="{newsItem}" settings="{settings}">
               <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
-                <f:if condition="{mediaElement.type} == 0">
-                  <f:image
-                    image="{mediaElement}"
-                    title="{mediaElement.title}"
-                    alt="{mediaElement.alt}"
-                    maxWidth="150"
-                    maxHeight="200"
-                    />
-                </f:if>
-                <f:if condition="{mediaElement.type} == 1">
-                  <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}" />
-                </f:if>
-                <f:if condition="{mediaElement.type} == 2">
-                  <f:render partial="Detail/MediaHtml" arguments="{mediaElement: mediaElement}" />
-                </f:if>
+					<f:if condition="{mediaElement.type} == 0">
+
+						<picture>
+						  <f:image
+							image="{mediaElement}"
+							title="{mediaElement.title}"
+							alt="{mediaElement.alt}"
+							maxWidth="150"
+							maxHeight="250"
+							/>
+						</picture>
+					
+					</f:if>
+					<p>{newsItem.title}</p>
+					
+				 
               </f:alias>
-			{newsItem.title}
-        </geo:link>
+          </geo:link>
+		</figure> 
+		<div style="clear:left;"/>  
       </div>
 </f:section>
 
 	<f:section name="maps">
 			<f:for each="{maps}" as="map">
-				<f:link.external uri="{map.link}" target="_blank" title="Diese Karte kann beim Landkartenhaus online bestellt werden">
-					<img src="{map.bildurl}" height="200px"/></br>
-				{map.kartenreihe} - {map.kartennummer} {map.name}
-			</f:link.external> - Maßstab: {map.massstab} 		 
-				<br/>
+			   <figure class="image map"> 
+				 <f:link.external 
+						uri="{map.link}" 
+						target="_blank" 
+					    title="Diese Karte kann beim Landkartenhaus online bestellt werden"
+				 >
+					<picture>
+					 	<img 
+							 src="{map.bildurl}" 
+							 height="200px"
+							 width="150px"
+						/>
+					</picture>
+					<p>	{map.kartenreihe} - {map.kartennummer} {map.name} - Maßstab: {map.massstab} </p>
+				</f:link.external> 		 
+			  </figure> 	
+			  <div style="clear:left;"/>
 			</f:for>
 	</f:section>
 
