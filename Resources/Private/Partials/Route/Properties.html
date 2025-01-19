@@ -164,7 +164,7 @@
 				// initialize the map on the "map" div with a given center and zoom
 				var map = L.map('mapid').setView([{route.mountains.0.latitude}, {route.mountains.0.longitude}], 13);
 				// create a new tile layer
-				var tileUrl = 'https://tile.thunderforest.com/cycle/<f:format.raw>{</f:format.raw>z<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>x<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>y<f:format.raw>}</f:format.raw>.png?apikey=7d7c2e128abd4a76bc68dbd070ba94db',
+				var tileUrl = 'https://<f:format.raw>{</f:format.raw>s<f:format.raw>}</f:format.raw>.tile.opentopomap.org/<f:format.raw>{</f:format.raw>z<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>x<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>y<f:format.raw>}</f:format.raw>.png?apikey=7d7c2e128abd4a76bc68dbd070ba94db',
 				layer = new L.TileLayer(tileUrl, {maxZoom: 18});
                 var gipfelIcon = L.icon(<f:format.raw>{</f:format.raw>
 					iconUrl: '/fileadmin/images/pin_gipfel.png',
