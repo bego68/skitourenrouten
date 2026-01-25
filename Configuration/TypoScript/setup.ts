@@ -1,5 +1,10 @@
 
 plugin.tx_skitourenrouten_skitouren {
+    settings {
+        openTopoMapApiKey = {$plugin.tx_skitourenrouten_skitouren.settings.openTopoMapApiKey}
+        singleTourPageUid = {$plugin.tx_skitourenrouten_skitouren.settings.singleTourPageUid}
+        markerIconPath = {$plugin.tx_skitourenrouten_skitouren.settings.markerIconPath}
+    }
     view {
         templateRootPaths.0 = EXT:skitourenrouten/Resources/Private/Templates/
         templateRootPaths.1 = {$plugin.tx_skitourenrouten_skitouren.view.templateRootPath}
