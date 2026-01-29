@@ -164,7 +164,7 @@
 				// initialize the map on the "map" div with a given center and zoom
 				var map = L.map('mapid').setView([{route.mountains.0.latitude}, {route.mountains.0.longitude}], 13);
 				// create a new tile layer
-				var tileUrl = 'https://tile.thunderforest.com/cycle/<f:format.raw>{</f:format.raw>z<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>x<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>y<f:format.raw>}</f:format.raw>.png?apikey=7d7c2e128abd4a76bc68dbd070ba94db',
+				var tileUrl = 'https://<f:format.raw>{</f:format.raw>s<f:format.raw>}</f:format.raw>.tile.opentopomap.org/<f:format.raw>{</f:format.raw>z<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>x<f:format.raw>}</f:format.raw>/<f:format.raw>{</f:format.raw>y<f:format.raw>}</f:format.raw>.png?apikey=7d7c2e128abd4a76bc68dbd070ba94db',
 				layer = new L.TileLayer(tileUrl, {maxZoom: 18});
                 var gipfelIcon = L.icon(<f:format.raw>{</f:format.raw>
 					iconUrl: '/fileadmin/images/pin_gipfel.png',
@@ -193,7 +193,7 @@
 					opacity: 0.75,
 					weight: 3,
 					lineCap: 'round',
-					attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.thunderforest.com/">Thunderforest</a>',
+					attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> Mitwirkende, Kartendarstellung: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)',
 
 				 }
 				}).on('loaded', function(e) {
@@ -447,6 +447,7 @@
 						target="_blank" 
 					    title="Diese Karte kann beim Landkartenhaus online bestellt werden"
 				 >
+					 <!-- 
 					<picture>
 					 	<img 
 							 src="{map.bildurl}" 
@@ -454,6 +455,7 @@
 							 width="150px"
 						/>
 					</picture>
+					 -->
 					<p>	{map.kartenreihe} - {map.kartennummer} {map.name} - Maßstab: {map.massstab} </p>
 				</f:link.external> 		 
 			  </figure> 	

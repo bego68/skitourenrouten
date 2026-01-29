@@ -100,15 +100,10 @@ return [
             'exclude' => false,
             'label' => 'LLL:EXT:skitourenrouten/Resources/Private/Language/locallang_db.xlf:tx_skitourenrouten_domain_model_map.name',
             'config' => [
-				'type' => 'datetime',
-         		'format' => 'date',
-				'size' => 13,
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => [
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				],
-			],
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
         ],
         'description' => [
             'exclude' => false,
