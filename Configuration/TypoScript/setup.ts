@@ -1,5 +1,30 @@
 
+jsonEndpoint = PAGE
+jsonEndpoint {
+    typeNum = 123
+    10 < tt_content.list.20.skitourenrouten_skitouren
+    10 {
+        switchableControllerActions {
+            Map {
+                1 = jsonData
+            }
+        }
+        settings < plugin.tx_skitourenrouten_skitouren.settings
+    }
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders.10.header = Content-Type: application/json
+        xhtml_cleaning = 0
+        admPanel = 0
+    }
+}
+
 plugin.tx_skitourenrouten_skitouren {
+    settings {
+        openTopoMapApiKey = {$plugin.tx_skitourenrouten_skitouren.settings.openTopoMapApiKey}
+        singleTourPageUid = {$plugin.tx_skitourenrouten_skitouren.settings.singleTourPageUid}
+        markerIconPath = {$plugin.tx_skitourenrouten_skitouren.settings.markerIconPath}
+    }
     view {
         templateRootPaths.0 = EXT:skitourenrouten/Resources/Private/Templates/
         templateRootPaths.1 = {$plugin.tx_skitourenrouten_skitouren.view.templateRootPath}
@@ -24,3 +49,12 @@ plugin.tx_skitourenrouten_skitouren {
     }
 }
 
+page.includeCSS {
+    leaflet = EXT:skitourenrouten/Resources/Public/Css/leaflet.css
+    map = EXT:skitourenrouten/Resources/Public/Css/map.css
+}
+
+page.includeJSFooter {
+    leaflet = EXT:skitourenrouten/Resources/Public/JavaScript/leaflet.js
+    tourlistmap = EXT:skitourenrouten/Resources/Public/JavaScript/TourListMap.js
+}

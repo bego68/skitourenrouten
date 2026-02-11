@@ -1,8 +1,10 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:layout name="Default" />
 
-
 	<f:section name="content">
+		<div id="mapid"
+			 data-api-key="{settings.openTopoMapApiKey}"
+			 data-icon-path="{settings.markerIconPath}"></div>
 		<div class="card-group-element card-group-element-align-left card-group-element-columns-4">
 			<f:for each="{routes}" as="route">
 				<div class="card-group-element-item">
@@ -16,7 +18,7 @@
 							<p>
 								<f:link.action 
 												   action="show" 
-												   pageUid="2392" 
+												   pageUid="{settings.singleTourPageUid}"
 												   arguments="{route : route}"
 								>
 									<span class="stern_ski  stern{route.schoenheit}_ski"> </span><br>
@@ -28,8 +30,8 @@
 				</div>
 			</f:for>
 		</div>
-		
-		
+
+
 <!--
 		<table  class="tx_skitourenrouten" >
 			<tr>
@@ -42,7 +44,7 @@
 					<td>
 						<f:if condition="{route.mountains}">
                           <f:format.html> {route.mountains.0.name}	({route.mountains.0.height} m)</f:format.html>
-                	    </f:if>
+			    </f:if>
 					</td>
 					<td><f:link.action action="show" pageUid="2392" arguments="{route : route}">{route.routenname}<span class="stern_ski  stern{route.schoenheit}_ski"> </span></f:link.action></td>
 										</tr>

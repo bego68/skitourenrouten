@@ -47,10 +47,10 @@ class RouteController extends ActionController
      * @return void
      */
     public function listAction():ResponseInterface
-    {   
+    {
         $routes = $this->routeRepository->findAll();
         $this->view->assign('routes', $routes);
-		 return $this->htmlResponse();
+        return $this->htmlResponse();
     }
 
     /**
