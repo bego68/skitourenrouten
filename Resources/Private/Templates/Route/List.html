@@ -10,9 +10,6 @@
 		<div id="mapid"
 			 data-api-key="{settings.openTopoMapApiKey}"
 			 data-icon-path="{settings.markerIconPath}"></div>
-		<script id="tour-data" type="application/json">
-			{tourData -> f:format.json() -> f:format.raw()}
-		</script>
 		<div class="card-group-element card-group-element-align-left card-group-element-columns-4">
 			<f:for each="{routes}" as="route">
 				<div class="card-group-element-item">

@@ -49,27 +49,6 @@ class RouteController extends ActionController
     public function listAction():ResponseInterface
     {
         $routes = $this->routeRepository->findAll();
-        $tourData = [];
-        $pageUid = $this->settings['singleTourPageUid'] ?? $this->request->getAttribute('routing')->getPageId();
-
-        foreach ($routes as $route) {
-            if ($route->getMountains()->count() > 0) {
-                $mountain = $route->getMountains()->current();
-                $tourData[] = [
-                    'name' => $mountain->getName(),
-                    'height' => $mountain->getHeight(),
-                    'latitude' => $mountain->getLatitude(),
-                    'longitude' => $mountain->getLongitude(),
-                    'routename' => $route->getRoutenname(),
-                    'url' => $this->uriBuilder
-                        ->reset()
-                        ->setTargetPageUid($pageUid)
-                        ->setCreateAbsoluteUri(true)
-                        ->uriFor('show', ['route' => $route], 'Route')
-                ];
-            }
-        }
-        $this->view->assign('tourData', $tourData);
         $this->view->assign('routes', $routes);
         return $this->htmlResponse();
     }

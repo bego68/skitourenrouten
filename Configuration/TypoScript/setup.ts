@@ -1,4 +1,24 @@
 
+jsonEndpoint = PAGE
+jsonEndpoint {
+    typeNum = 123
+    10 < tt_content.list.20.skitourenrouten_skitouren
+    10 {
+        switchableControllerActions {
+            Map {
+                1 = jsonData
+            }
+        }
+        settings < plugin.tx_skitourenrouten_skitouren.settings
+    }
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders.10.header = Content-Type: application/json
+        xhtml_cleaning = 0
+        admPanel = 0
+    }
+}
+
 plugin.tx_skitourenrouten_skitouren {
     settings {
         openTopoMapApiKey = {$plugin.tx_skitourenrouten_skitouren.settings.openTopoMapApiKey}
@@ -15,7 +35,7 @@ plugin.tx_skitourenrouten_skitouren {
     }
     persistence {
         storagePid = {$plugin.tx_skitourenrouten_skitouren.persistence.storagePid}
-        recursive = 1
+        #recursive = 1
     }
     features {
         #skipDefaultArguments = 1
