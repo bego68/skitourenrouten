@@ -10,7 +10,7 @@ plugin.tx_skitourenrouten_skitouren {
     }
     persistence {
         storagePid = {$plugin.tx_skitourenrouten_skitouren.persistence.storagePid}
-        #recursive = 1
+        recursive = 1
     }
     features {
         #skipDefaultArguments = 1
