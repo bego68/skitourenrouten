@@ -46,6 +46,6 @@ class MapController extends ActionController
             }
         }
 
-        return $this->jsonResponse(json_encode($tourData));
+        return $this->jsonResponse($tourData);
     }
 }
