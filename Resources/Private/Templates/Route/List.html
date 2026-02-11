@@ -9,8 +9,10 @@
 	<f:section name="content">
 		<div id="mapid"
 			 data-api-key="{settings.openTopoMapApiKey}"
-			 data-icon-path="{settings.markerIconPath}"
-			 data-tours='{tourData -> f:format.json() -> f:format.raw()}'></div>
+			 data-icon-path="{settings.markerIconPath}"></div>
+		<script id="tour-data" type="application/json">
+			{tourData -> f:format.json() -> f:format.raw()}
+		</script>
 		<div class="card-group-element card-group-element-align-left card-group-element-columns-4">
 			<f:for each="{routes}" as="route">
 				<div class="card-group-element-item">
@@ -36,6 +38,27 @@
 				</div>
 			</f:for>
 		</div>
+
+
+<!--
+		<table  class="tx_skitourenrouten" >
+			<tr>
+				<th><f:translate key="tx_skitourenrouten_domain_model_route.mountains" /></th>
+				<th><f:translate key="tx_skitourenrouten_domain_model_route.routenname" /></th>
+			</tr>
+
+			<f:for each="{routes}" as="route">
+				<tr>
+					<td>
+						<f:if condition="{route.mountains}">
+                          <f:format.html> {route.mountains.0.name}	({route.mountains.0.height} m)</f:format.html>
+			    </f:if>
+					</td>
+					<td><f:link.action action="show" pageUid="2392" arguments="{route : route}">{route.routenname}<span class="stern_ski  stern{route.schoenheit}_ski"> </span></f:link.action></td>
+										</tr>
+			</f:for>
+		</table>
+-->
 </f:section>
 
 </html>

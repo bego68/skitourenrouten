@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
     var mapElement = document.getElementById('mapid');
-    if (mapElement) {
+    var tourDataElement = document.getElementById('tour-data');
+
+    if (mapElement && tourDataElement) {
         var apiKey = mapElement.dataset.apiKey;
         var iconPath = mapElement.dataset.iconPath;
-        var tourData = JSON.parse(mapElement.dataset.tours);
+        var tourData = JSON.parse(tourDataElement.textContent);
 
         if (tourData.length > 0) {
             // Initialize the map, centered on the first tour if possible, otherwise a default view.
