@@ -65,10 +65,7 @@ class RouteController extends ActionController
                         ->reset()
                         ->setTargetPageUid($pageUid)
                         ->setCreateAbsoluteUri(true)
-                        ->setControllerName('Route')
-                        ->setActionName('show')
-                        ->setArguments(['route' => $route])
-                        ->build()
+                        ->uriFor('show', ['route' => $route], 'Route')
                 ];
             }
         }
