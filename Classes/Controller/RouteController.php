@@ -50,6 +50,8 @@ class RouteController extends ActionController
     {
         $routes = $this->routeRepository->findAll();
         $tourData = [];
+        $pageUid = $this->settings['singleTourPageUid'] ?? $this->request->getAttribute('routing')->getPageId();
+
         foreach ($routes as $route) {
             if ($route->getMountains()->count() > 0) {
                 $mountain = $route->getMountains()->current();
@@ -61,7 +63,7 @@ class RouteController extends ActionController
                     'routename' => $route->getRoutenname(),
                     'url' => $this->uriBuilder
                         ->reset()
-                        ->setTargetPageUid($this->settings['singleTourPageUid'])
+                        ->setTargetPageUid($pageUid)
                         ->setCreateAbsoluteUri(true)
                         ->for(
                             'show',
