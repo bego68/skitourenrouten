@@ -17,6 +17,12 @@ namespace Golf\Skitourenrouten\Domain\Repository;
  */
 class RouteRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    /**
+     * @var array
+     */
+    protected $defaultOrderings = [
+        'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+    ];
 
     public function initializeObject()
     {

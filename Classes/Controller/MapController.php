@@ -24,10 +24,6 @@ class MapController extends ActionController
 
     public function jsonDataAction()
     {
-        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-        $this->persistenceManager = $this->objectManager->get(PersistenceManager::class);
-        $this->routeRepository = $this->objectManager->get(RouteRepository::class);
-
         $routes = $this->routeRepository->findAll();
         $tourData = [];
         $pageUid = $this->settings['singleTourPageUid'] ?? $this->request->getAttribute('routing')->getPageId();
