@@ -35,7 +35,7 @@ plugin.tx_skitourenrouten_skitouren {
     }
     persistence {
         storagePid = {$plugin.tx_skitourenrouten_skitouren.persistence.storagePid}
-        recursive = 1
+        #recursive = 1
     }
     features {
         #skipDefaultArguments = 1
@@ -49,3 +49,12 @@ plugin.tx_skitourenrouten_skitouren {
     }
 }
 
+page.includeCSS {
+    leaflet = EXT:skitourenrouten/Resources/Public/Css/leaflet.css
+    map = EXT:skitourenrouten/Resources/Public/Css/map.css
+}
+
+page.includeJSFooter {
+    leaflet = EXT:skitourenrouten/Resources/Public/JavaScript/leaflet.js
+    tourlistmap = EXT:skitourenrouten/Resources/Public/JavaScript/TourListMap.js
+}
