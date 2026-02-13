@@ -9,7 +9,7 @@ plugin.tx_skitourenrouten_skitouren {
         layoutRootPaths.1 = {$plugin.tx_skitourenrouten_skitouren.view.layoutRootPath}
     }
     persistence {
-        storagePid = {$plugin.tx_skitourenrouten_skitouren.persistence.storagePid}
+        #storagePid = {$plugin.tx_skitourenrouten_skitouren.persistence.storagePid}
         recursive = 1
     }
     features {
